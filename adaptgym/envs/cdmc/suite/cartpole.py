@@ -19,10 +19,13 @@ import collections
 
 from dm_control import mujoco
 # from dm_control.rl import control
-from envs.cdmc.rl import control
+# from envs.cdmc.rl import control
+from ..rl import control
 from dm_control.suite import base
 # from dm_control.suite import common
-from envs.cdmc.suite import common
+# from envs.cdmc.suite import common
+from . import common
+
 from dm_control.utils import containers
 from dm_control.utils import rewards
 from lxml import etree

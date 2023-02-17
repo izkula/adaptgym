@@ -19,13 +19,20 @@ import collections
 import inspect
 import itertools
 
-from envs.cdmc.rl import control
+# from envs.cdmc.rl import control
+from ..rl import control
 
 # from dm_control.suite import acrobot
-from envs.cdmc.suite import acrobot
-from envs.cdmc.suite import ball_in_cup
-from envs.cdmc.suite import cartpole
-from envs.cdmc.suite import cheetah
+# from envs.cdmc.suite import acrobot
+# from envs.cdmc.suite import ball_in_cup
+# from envs.cdmc.suite import cartpole
+# from envs.cdmc.suite import cheetah
+
+# from . import acrobot
+# from . import ball_in_cup
+from . import cartpole
+# from . import cheetah
+
 # from envs.cdmc.suite import dog
 # from envs.cdmc.suite import finger
 # from envs.cdmc.suite import fish
