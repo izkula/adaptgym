@@ -28,10 +28,10 @@ from ..rl import control
 # from envs.cdmc.suite import cartpole
 # from envs.cdmc.suite import cheetah
 
-# from . import acrobot
-# from . import ball_in_cup
+from . import acrobot
+from . import ball_in_cup
 from . import cartpole
-# from . import cheetah
+from . import cheetah
 
 # from envs.cdmc.suite import dog
 # from envs.cdmc.suite import finger
