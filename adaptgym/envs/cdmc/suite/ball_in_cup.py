@@ -71,7 +71,7 @@ class Physics(mujoco.Physics):
 
 class BallInCup(base.Task):
   """The Ball-in-Cup task. Put the ball in the cup."""
-  def __init__(self, random=None, unconstrain_at_step=0):
+  def __init__(self, random=None, unconstrain_at_step=5e5):
     self._unconstrain_at_step = unconstrain_at_step
     super().__init__(random=random)
 

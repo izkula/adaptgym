@@ -43,6 +43,7 @@ SUITE = containers.TaggedTasks()
 def get_model_and_assets():
   """Returns a tuple containing the model XML string and a dict of assets."""
   # return common.read_model('cheetah.xml'), common.ASSETS
+  print('CHEETAH_C')
   return common.read_model('cheetah_c.xml'), common.ASSETS
 
 
@@ -66,7 +67,7 @@ class Physics(mujoco.Physics):
 
 class Cheetah(base.Task):
   """A `Task` to train a running Cheetah."""
-  def __init__(self, random=None, unconstrain_at_step=0):
+  def __init__(self, random=None, unconstrain_at_step=5e5):
     self._unconstrain_at_step = unconstrain_at_step
     super().__init__(random=random)
     

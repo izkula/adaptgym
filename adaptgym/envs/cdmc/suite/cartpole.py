@@ -111,6 +111,7 @@ def _make_model(n_poles):
   """Generates an xml string defining a cart with `n_poles` bodies."""
   # xml_string = common.read_model('cartpole.xml')
   xml_string = common.read_model('cartpole_c.xml')
+  print('CARTPOLE_C')
 
   if n_poles == 1:
     return xml_string
@@ -164,7 +165,7 @@ class Balance(base.Task):
   _CART_RANGE = (-.25, .25)
   _ANGLE_COSINE_RANGE = (.995, 1)
 
-  def __init__(self, swing_up, sparse, random=None, unconstrain_at_step=0):
+  def __init__(self, swing_up, sparse, random=None, unconstrain_at_step=5e5):
     """Initializes an instance of `Balance`.
 
     Args:

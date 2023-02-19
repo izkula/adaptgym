@@ -88,7 +88,7 @@ class Physics(mujoco.Physics):
 class Balance(base.Task):
   """An Acrobot `Task` to swing up and balance the pole."""
 
-  def __init__(self, sparse, random=None, unconstrain_at_step=0):
+  def __init__(self, sparse, random=None, unconstrain_at_step=5e5):
     """Initializes an instance of `Balance`.
 
     Args:
