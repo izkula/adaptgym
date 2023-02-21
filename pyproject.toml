@@ -6,6 +6,9 @@ authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 #packages = [
 #    {include = "envs"},
 #]
+packages = [
+    { include = "adaptgym"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
