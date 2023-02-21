@@ -14,7 +14,7 @@ setup(
     packages=find_namespace_packages(where='adaptgym'),
     package_dir={"": "adaptgym"},
     package_data = {"":['*.xml', '**/*.xml', '*.png', '**/*.png']},
-    install_requires=['numpy==1.19',
+    install_requires=['numpy==1.19.2',
                       # 'numpy==1.22',
                       'scipy>=1.7.0', 'matplotlib>=3.4.2', 'imageio',
                       'dm-control==1.0.7', 'dm-env==1.5', 'dm-tree==0.1.7', 
