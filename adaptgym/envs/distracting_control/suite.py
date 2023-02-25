@@ -27,11 +27,14 @@ try:
 except ImportError:
   suite = None
 
-from envs.distracting_control import background
-from envs.distracting_control import camera
-from envs.distracting_control import color
-from envs.distracting_control import suite_utils
-
+# from envs.distracting_control import background
+# from envs.distracting_control import camera
+# from envs.distracting_control import color
+# from envs.distracting_control import suite_utils
+from . import background
+from . import camera
+from . import color
+from . import suite_utils
 
 def is_available():
   return suite is not None

@@ -29,8 +29,10 @@ home = str(Path.home())
 
 DIFFICULTY_SCALE = dict(easy=0.1, medium=0.2, hard=0.3)
 DIFFICULTY_NUM_VIDEOS = dict(easy=4, medium=8, hard=None)
-DEFAULT_BACKGROUND_PATH = os.path.join(str(home), 'data/DAVIS/JPEGImages/480p/')
-
+# DEFAULT_BACKGROUND_PATH = os.path.join(str(home), 'data/DAVIS/JPEGImages/480p/')
+fpath = os.path.abspath(os.path.dirname(__file__))
+print(fpath)
+DEFAULT_BACKGROUND_PATH = os.path.join(str(fpath), 'data/')
 
 def get_color_kwargs(scale, dynamic):
   max_delta = scale

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adaptgym"
-version = "0.1.4"
+version = "0.1.9"
 description = ""
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 #packages = [
@@ -12,16 +12,17 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy="^1.19.5"
+numpy="1.19.5"
 scipy=">=1.7.0"
 matplotlib=">=3.4.2"
 dm-control="1.0.7"
 dm-env="1.5"
 dm-tree="0.1.7"
 crafter="1.8.0"
-Pillow=">=8.3.0"
+Pillow="8.2.0"
 pytest = "^5.2"
-#imageio
+protobuf = "3.20.3"
+tensorflow = "^2.4.0" # Required for ddmc
 
 
 [tool.poetry.dev-dependencies]
