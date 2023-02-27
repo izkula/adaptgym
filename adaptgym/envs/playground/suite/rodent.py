@@ -17,16 +17,16 @@ from dm_control.locomotion.arenas import labmaze_textures
 from dm_control.locomotion.props import target_sphere
 
 # from dm_control.locomotion.arenas import corridors as corr_arenas
-from envs.playground.arenas import corridors as corr_arenas
-from envs.playground.arenas import mazes
-from envs.playground.tasks import random_goal_maze
-from envs.playground.walkers import jumping_ball
-from envs.playground.walkers import rodent
+from adaptgym.envs.playground.arenas import corridors as corr_arenas
+from adaptgym.envs.playground.arenas import mazes
+from adaptgym.envs.playground.tasks import random_goal_maze
+from adaptgym.envs.playground.walkers import jumping_ball
+from adaptgym.envs.playground.walkers import rodent
 
-from envs.playground.tasks import templates
-import envs.playground.policies.policies as pol
-from envs.playground.tasks import custom_mazes
-from envs.playground.tasks import playgrounds
+from adaptgym.envs.playground.tasks import templates
+import adaptgym.envs.playground.policies.policies as pol
+from adaptgym.envs.playground.tasks import custom_mazes
+from adaptgym.envs.playground.tasks import playgrounds
 
 _CONTROL_TIMESTEP = .02
 _PHYSICS_TIMESTEP = 0.001

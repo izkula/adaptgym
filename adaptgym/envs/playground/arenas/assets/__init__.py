@@ -19,11 +19,12 @@ import collections
 import os
 import sys
 
-import training
+# import training
+import adaptgym.envs.playground
 
 # ROOT_DIR = '../training/arenas/assets'
-ROOT_DIR = training.__path__[0] + '/arenas/assets'
-
+# ROOT_DIR = training.__path__[0] + '/arenas/assets'
+ROOT_DIR = adaptgym.envs.playground.__path__[0] + '/arenas/assets'
 
 def get_texturedir(style):
   return os.path.join(ROOT_DIR, style)

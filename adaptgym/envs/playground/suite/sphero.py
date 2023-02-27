@@ -7,14 +7,14 @@ from dm_control.composer.variation import distributions
 from dm_control.utils import containers
 from dm_control import composer
 
-from envs.playground.walkers import jumping_ball
-from envs.playground.walkers import rodent
+from adaptgym.envs.playground.walkers import jumping_ball
+from adaptgym.envs.playground.walkers import rodent
 
-from envs.playground.tasks import templates
-import envs.playground.policies.policies as pol
-from envs.playground.tasks import custom_mazes
-from envs.playground.tasks import playgrounds
-from training.utils.exploration_tracker import ExplorationTracker
+from adaptgym.envs.playground.tasks import templates
+import adaptgym.envs.playground.policies.policies as pol
+from adaptgym.envs.playground.tasks import custom_mazes
+from adaptgym.envs.playground.tasks import playgrounds
+from adaptgym.envs.playground.exploration_tracker import ExplorationTracker
 
 
 # _CONTROL_TIMESTEP = .02

@@ -41,15 +41,21 @@ from dm_control.rl import control
 # from dm_control.suite import swimmer
 # from dm_control.suite import walker
 
-from envs.playground.suite import humanoid
-from envs.playground.suite import ant
-from envs.playground.suite import rodent
-from envs.playground.suite import sphero
+# from envs.playground.suite import humanoid
+# from envs.playground.suite import ant
+# from envs.playground.suite import rodent
+# from envs.playground.suite import sphero
+#
+# from envs.playground.suite import cheetah
+# from envs.playground.suite import walker
 
-from envs.playground.suite import cheetah
-from envs.playground.suite import walker
+from . import humanoid
+from . import ant
+from . import rodent
+from . import sphero
 
-
+from . import cheetah
+from . import walker
 
 # Find all domains imported.
 _DOMAINS = {name: module for name, module in locals().items()

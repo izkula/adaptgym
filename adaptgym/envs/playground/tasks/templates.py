@@ -1,7 +1,7 @@
 import numpy as np
 # from dm_control.locomotion.arenas import labmaze_textures
 from dm_control.locomotion.props import target_sphere
-from envs.playground.arenas import mazes, labmaze_textures
+from adaptgym.envs.playground.arenas import mazes, labmaze_textures
 
 
 # def maze_vel_template(maze_str, var_str, agents, primary_agent, scale=1.0,
@@ -132,7 +132,7 @@ def maze_goal_template(maze_str, var_str, agents, primary_agent, scale=1.0,
     dense_reward_scaling = 0
     target_reward_scale = 0
 
-  from envs.playground.tasks import multiagent_goal_maze
+  from adaptgym.envs.playground.tasks import multiagent_goal_maze
   task = multiagent_goal_maze.RepeatSingleGoalMaze(
     walkers=agents,
     maze_arena=arena,

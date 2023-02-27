@@ -18,7 +18,7 @@
 from dm_control import composer
 from dm_control import mjcf
 # from labmaze import assets as labmaze_assets
-from envs.playground.labmaze import assets as labmaze_assets
+from adaptgym.envs.playground.labmaze import assets as labmaze_assets
 
 class SkyBox(composer.Entity):
   """Represents a texture asset for the sky box."""

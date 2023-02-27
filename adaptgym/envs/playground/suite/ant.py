@@ -19,18 +19,18 @@ from dm_control.locomotion.props import target_sphere
 # from dm_control.locomotion.tasks import random_goal_maze
 # from dm_control.locomotion.arenas import mazes
 # from dm_control.locomotion.arenas import corridors as corr_arenas
-from envs.playground.arenas import corridors as corr_arenas
-from envs.playground.arenas import mazes
+from adaptgym.envs.playground.arenas import corridors as corr_arenas
+from adaptgym.envs.playground.arenas import mazes
 
-from envs.playground.tasks import random_goal_maze
-from envs.playground.walkers import jumping_ball
-import envs.playground.policies.policies as pol
-from envs.playground.tasks import custom_mazes
-from envs.playground.tasks import templates
-from envs.playground.tasks import playgrounds
+from adaptgym.envs.playground.tasks import random_goal_maze
+from adaptgym.envs.playground.walkers import jumping_ball
+import adaptgym.envs.playground.policies.policies as pol
+from adaptgym.envs.playground.tasks import custom_mazes
+from adaptgym.envs.playground.tasks import templates
+from adaptgym.envs.playground.tasks import playgrounds
 
 # from dm_control.locomotion.walkers import ant
-from envs.playground.walkers import ant
+from adaptgym.envs.playground.walkers import ant
 
 
 _CONTROL_TIMESTEP = .02

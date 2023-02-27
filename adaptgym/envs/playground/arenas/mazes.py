@@ -27,7 +27,7 @@ import numpy as np
 from labmaze import text_grid
 import itertools
 
-from envs.playground.arenas import covering
+from adaptgym.envs.playground.arenas import covering
 
 
 # Put all "actual" wall geoms in a separate group since they are not rendered.

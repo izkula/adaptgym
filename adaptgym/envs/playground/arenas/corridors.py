@@ -20,7 +20,7 @@ import abc
 from dm_control import composer
 from dm_control.composer import variation
 # from dm_control.locomotion.arenas import assets as locomotion_arenas_assets
-from envs.playground.arenas import assets as locomotion_arenas_assets
+from adaptgym.envs.playground.arenas import assets as locomotion_arenas_assets
 
 
 _SIDE_WALLS_GEOM_GROUP = 3

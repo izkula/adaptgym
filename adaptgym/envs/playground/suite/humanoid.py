@@ -12,13 +12,13 @@ from dm_control import composer
 
 from dm_control.locomotion.tasks import corridors as corr_tasks
 
-from envs.playground.arenas import corridors as corr_arenas
-from envs.playground.walkers import jumping_ball
-from envs.playground.walkers import cmu_humanoid
+from adaptgym.envs.playground.arenas import corridors as corr_arenas
+from adaptgym.envs.playground.walkers import jumping_ball
+from adaptgym.envs.playground.walkers import cmu_humanoid
 
-from envs.playground.tasks import templates
-import envs.playground.policies.policies as pol
-from envs.playground.tasks import custom_mazes
+from adaptgym.envs.playground.tasks import templates
+import adaptgym.envs.playground.policies.policies as pol
+from adaptgym.envs.playground.tasks import custom_mazes
 
 
 _CONTROL_TIMESTEP = .02
