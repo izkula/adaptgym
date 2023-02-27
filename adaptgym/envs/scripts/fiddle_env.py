@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 import time
 
 from dm_control import viewer
-import common.envs
-
-from dreamerv2.utils import parse_flags
+import gym
 
 import cv2
 
@@ -22,15 +20,7 @@ def fiddle_with_env(config, mode='interactive', get_fps=False, do_random = True)
     interactive = mode == 'interactive'
 
     if which_envs == 1:
-        # env = common.envs.make_env(config, 'train')
-        #logging_params = {'logger': None,
-        #                  'grid_density': 20,
-        #                  'episode_length': None,
-        #                  'env_raw_output_file_name': 'log_' + datetime.now().strftime("%Y%m%d%H%M%S") + '.csv',
-        #                  'record_every_k_timesteps': 20,
-        #                  'episodes_for_summary_metrics': 2}
 
-        #env = common.envs.make_env(config, config.task, logging_params)
         env = common.envs.make_env(config, config.task)
         if interactive:
             action_spec = env._env._env._env._env._env.action_spec()
@@ -152,40 +142,107 @@ def fiddle_with_env(config, mode='interactive', get_fps=False, do_random = True)
                 env.reset()
 
 
+def display(env, num_ep=3, num_frames=3000):
+    env.reset()
+    # acts = env.action_spec()
+    acts = env.action_space
+
+    for j in range(num_ep):
+        for i in range(num_frames):
+            # action = np.random.uniform(acts.minimum, acts.maximum, acts.shape)
+            action = acts.sample()
+            results = [env.step(action)]
+            obs, _, done = zip(*[p[:3] for p in results])
+            obs = list(obs)
+            img = obs[0]['image']
+            resized = cv2.resize(img, (400, 400), interpolation=cv2.INTER_AREA)
+            resized = np.flip(resized, axis=2)
+            img = resized.astype('uint8')
+            do_overlay_text = True
+            if do_overlay_text:
+                img = cv2.putText(resized.astype('uint8'), f'ep {j}, step {i}',
+                                  (50, 330),
+                                  fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                  fontScale=1,
+                                  color=(255, 255, 255),
+                                  thickness=3,
+                                  lineType=2)
+
+            cv2.imshow('image', img)
+            cv2.waitKey(10)
+            if done[0]:  # Assumes a single environment
+                break
+        # Reset
+        env.reset()
+
 def main():
-    parser = argparse.ArgumentParser(description='Specify training arguments.')
-    parser.add_argument('--logdir', dest='logdir', default='/dev/null',
-                        help='path to logdir')
-    args = parser.parse_args()
+    name = 'cdmc_cheetah_run'
+    name = 'cdmc_cartpole_swingup_sparse'
+    name = 'ddmc_walker_walk'
+    envname, taskname = name.split('_', 1)
 
-    flags = [
-        '--configs', 'defaults', 'dmc', #'adapt',
-        # '--task', 'admc_sphero_multiagent_novel_objects_step1step2_single_magenta',
-        # '--task', 'admc_sphero_multiagent_novel_objects_test',
-        # '--task', 'admc_sphero_multiagent_dense_goal',
-        # '--reset_position_freq', '100',
-        '--time_limit', '1e3',  # Nonepisodic (freerange)
-        '--dynamic_ddmc', 'False',
-        # '--task', 'cdmc_cup_catch',
-        # '--task', 'cdmc_cartpole_swingup_sparse',
-        # '--task', 'cdmc_acrobot_swingup_sparse',
-        '--task', 'cdmc_cheetah_run',
+    from adaptgym import wrapped
+    if envname == 'cdmc':
+      env = wrapped.CDMC(taskname)
+    elif envname == 'ddmc':
+      env = wrapped.DDMC(taskname)
 
-        '--unconstrain_at_step_cdmc',  '1000',
-        # '--task', 'crafter_reward',
-        # '--task', 'atari_pong',
-        '--egocentric_camera', 'False',
-        # '--specify_background_ddmc', '1,1e3,2e3; 1,3e3,4e3',
-        # '--specify_background_ddmc', '0,0,1e3;1&0:3,1e3,1e9',
-        # '--admc_use_global_step', 'True',
-        ]
-    flags.extend(['--logdir', args.logdir])
 
-    config, logdir = parse_flags(flags)
-    fiddle_with_env(config,
-                    # mode='interactive',
-                    mode='display', #'display',
-                    get_fps=False, do_random=True)
+    # if name == 'cdmc_cheetah_run':
+    #     pass
+    #     # envname, taskname = name.split('_', 1)
+    #     # domain, task = taskname.split('_', 1)
+    #     # if domain == 'cup':  # Only domain with multiple words.
+    #     #     domain = 'ball_in_cup'
+    #     # from adaptgym.envs.cdmc import suite
+    #     # env = suite.load(domain, task)
+    #
+    # elif name == 'cdmc_cartpole_swingup_sparse':
+    #     from adaptgym.envs.cdmc.suite import cartpole
+    #     env = cartpole.swingup_sparse()
+    #
+    # elif name == 'cdmc_cup_catch':
+    #     from adaptgym.envs.cdmc.suite import ball_in_cup
+    #     env = ball_in_cup.catch()
+    #
+    # else:
+    #     raise(NotImplementedError)
+
+    display(env)
+
+    # parser = argparse.ArgumentParser(description='Specify training arguments.')
+    # parser.add_argument('--logdir', dest='logdir', default='/dev/null',
+    #                     help='path to logdir')
+    # args = parser.parse_args()
+    #
+    # flags = [
+    #     '--configs', 'defaults', 'dmc', #'adapt',
+    #     # '--task', 'admc_sphero_multiagent_novel_objects_step1step2_single_magenta',
+    #     # '--task', 'admc_sphero_multiagent_novel_objects_test',
+    #     # '--task', 'admc_sphero_multiagent_dense_goal',
+    #     # '--reset_position_freq', '100',
+    #     '--time_limit', '1e3',  # Nonepisodic (freerange)
+    #     '--dynamic_ddmc', 'False',
+    #     # '--task', 'cdmc_cup_catch',
+    #     # '--task', 'cdmc_cartpole_swingup_sparse',
+    #     # '--task', 'cdmc_acrobot_swingup_sparse',
+    #     '--task', 'cdmc_cheetah_run',
+    #
+    #     '--unconstrain_at_step_cdmc',  '1000',
+    #     # '--task', 'crafter_reward',
+    #     # '--task', 'atari_pong',
+    #     '--egocentric_camera', 'False',
+    #     # '--specify_background_ddmc', '1,1e3,2e3; 1,3e3,4e3',
+    #     # '--specify_background_ddmc', '0,0,1e3;1&0:3,1e3,1e9',
+    #     # '--admc_use_global_step', 'True',
+    #     ]
+    # flags.extend(['--logdir', args.logdir])
+    #
+    # config, logdir = parse_flags(flags)
+    # fiddle_with_env(config,
+    #                 # mode='interactive',
+    #                 mode='display', #'display',
+    #                 get_fps=False, do_random=True)
 
 
 if __name__ == "__main__":
