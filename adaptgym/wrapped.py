@@ -319,9 +319,10 @@ class DDMC:
     return self._env.physics.render(*self._size, camera_id=self._camera)
 
 
-class SpoofEpisodicWrapper(gym.Wrapper):
+# class SpoofEpisodicWrapper(gym.Wrapper):
+class SpoofEpisodicWrapper:
   def __init__(self, env, done_every=500):
-    super().__init__(env)
+    # super().__init__(env)
     self._env = env
     self.done_every = done_every
     self.step_count = 0
