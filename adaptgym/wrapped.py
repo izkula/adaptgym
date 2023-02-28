@@ -1,4 +1,4 @@
-"""Wrapped version of environments that includes rendering of image observation."""
+"""Wrapped version of environments, that includes rendering of image observation."""
 
 import os
 import gym
@@ -6,11 +6,19 @@ import numpy as np
 
 import dm_env
 from dm_env import specs
-
 import adaptgym.envs.playground.policies as pol
 
 
-class AdaptDMC:
+def ADMC(taskname, done_every=500, **kwargs):
+  """Wrap AdaptDMC_nonepisodic to spoof it being episodic
+   every 'done_every' steps, without the environment actually resetting.
+   """
+  env = AdaptDMC_nonepisodic(taskname, **kwargs)
+  env = SpoofEpisodicWrapper(env, done_every)
+  return env
+
+
+class AdaptDMC_nonepisodic:
 
   def __init__(self, name, action_repeat=2, size=(64, 64), camera=None, aesthetic='default',
                egocentric_camera=True, multiple_agents=False,
@@ -25,7 +33,7 @@ class AdaptDMC:
     else:
       logging_params = {'logger': None, 'grid_density': 20, 'episode_length': None,
                         'record_every_k_timesteps': 20, 'episodes_for_summary_metrics': 20,
-                        'logdir': logdir}
+                        'logdir': logdir, 'env_raw_output_file_name': f'log_train_env0.csv'}
 
     domain, task = name.split('_', 1)
     if isinstance(domain, str):
@@ -115,6 +123,7 @@ class AdaptDMC:
   def __getattr__(self, name):
     return getattr(self._env, name)
 
+
 class CDMC:
   def __init__(self, name, action_repeat=1, size=(64, 64), camera=None, unconstrain_at_step=5e5):
     os.environ['MUJOCO_GL'] = 'egl'
@@ -194,9 +203,8 @@ class CDMC:
 
 
 class DDMC:
-
-  def __init__(self, name, action_repeat=1, size=(64, 64), camera=None, unconstrain_at_step=5e5,
-               config=None):
+  def __init__(self, name, action_repeat=1, size=(64, 64), camera=None,
+               unconstrain_at_step=5e5, config=None):
     os.environ['MUJOCO_GL'] = 'egl'
     ################################################################################
     # Implementation of Cheetah/Walker Run Sparse follows
@@ -310,6 +318,39 @@ class DDMC:
       raise ValueError("Only render mode 'rgb_array' is supported.")
     return self._env.physics.render(*self._size, camera_id=self._camera)
 
+
+class SpoofEpisodicWrapper(gym.Wrapper):
+  def __init__(self, env, done_every=500):
+    super().__init__(env)
+    self._env = env
+    self.done_every = done_every
+    self.step_count = 0
+    self.last_obs = None
+    self.environment_done = None
+
+  def step(self, action):
+    self.step_count += 1
+
+    obs, reward, done, info = self._env.step(action)
+    self.last_obs = obs
+    self.environment_done = done
+
+    if self.step_count % self.done_every == 0:
+      print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
+      done = True
+
+    return obs, reward, done, info
+
+  def reset(self):
+    if self.last_obs is None or self.environment_done:
+      print('SpoofEpisodicWrapper: True environment reset')
+      return self._env.reset()
+    else:
+      print('SpoofEpisodicWrapper: Intercepting reset')
+      return self.last_obs
+
+  def __getattr__(self, name):
+    return getattr(self._env, name)
 
 class SpecifyPrimaryAgent:
   """Specify a primary agent and policies to control all

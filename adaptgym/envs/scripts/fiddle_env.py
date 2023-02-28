@@ -139,8 +139,11 @@ import cv2
 #                 env.reset()
 
 
-def interactive(env, do_random=True):
-    env = env._env
+def interactive(env, envname, do_random=True, n_wrappers=0):
+    if envname == 'admc':
+        n_wrappers += 1
+    for i in range(n_wrappers+1):
+        env = env._env
     action_spec = env.action_spec()
     if do_random:
         def policy(time_step):
@@ -228,7 +231,7 @@ def main():
     elif envname == 'ddmc':
       env = wrapped.DDMC(taskname)
     elif envname == 'admc':
-      env = wrapped.AdaptDMC(taskname)
+      env = wrapped.ADMC(taskname)
 
     mode = 'interactive'
     if mode == 'display':
@@ -236,7 +239,7 @@ def main():
     elif mode == 'gif':
         gif(env)
     elif mode == 'interactive':
-        interactive(env)
+        interactive(env, envname)
 
 
 if __name__ == "__main__":

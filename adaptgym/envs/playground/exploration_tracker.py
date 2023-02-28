@@ -215,7 +215,7 @@ class ExplorationTracker:
             self.flush_data(physics, random_state, increment_episode=False)
 
     def flush_data(self, physics, random_state, increment_episode=False):
-        print('flush_data executing in exploration tracker')
+        # print('flush_data executing in exploration tracker')
 
         if self.episode_data:
             ### TODO: Add in episode timestamp here?
