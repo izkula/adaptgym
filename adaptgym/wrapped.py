@@ -25,7 +25,7 @@ class AdaptDMC_nonepisodic:
                env_params=None, logging_params=None,
                control_timestep=0.03, physics_timestep=0.005,
                reset_position_freq=0, use_global_step=True,
-               logdir=None,
+               logdir=None, mode='train',
                ):
 
     if logdir is None:
@@ -33,7 +33,7 @@ class AdaptDMC_nonepisodic:
     else:
       logging_params = {'logger': None, 'grid_density': 20, 'episode_length': None,
                         'record_every_k_timesteps': 20, 'episodes_for_summary_metrics': 20,
-                        'logdir': logdir, 'env_raw_output_file_name': f'log_train_env0.csv'}
+                        'logdir': logdir, 'env_raw_output_file_name': f'log_{mode}_env0.csv'}
 
     domain, task = name.split('_', 1)
     if isinstance(domain, str):
