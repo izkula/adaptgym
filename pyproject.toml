@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adaptgym"
-version = "0.1.19"
+version = "0.1.21"
 description = ""
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 #packages = [
@@ -27,7 +27,8 @@ gym = "0.18.3"
 bidict = "0.22.1"
 pandas = ">= 1.2, <1.4"
 #tensorflow = "^2.4.0" # Required just for ddmc
-opencv-python = "^4.7.0" # Required just for fiddle_env
+#opencv-python = "^4.7.0" # Required just for fiddle_env
+opencv-python = ">=4.0.0" # Required just for fiddle_env
 
 
 [tool.poetry.dev-dependencies]
