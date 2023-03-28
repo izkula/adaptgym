@@ -303,7 +303,7 @@ class DDMC:
         break
     obs = dict(time_step.observation)
     obs['image'] = self.render()
-    del obs['pixels']  # Remove 'pixels', to match original format.
+    # del obs['pixels']  # Remove 'pixels', to match original format.
     done = time_step.last()
     info = {'discount': np.array(time_step.discount, np.float32)}
     return obs, reward, done, info
@@ -312,7 +312,7 @@ class DDMC:
     time_step = self._env.reset()
     obs = dict(time_step.observation)
     obs['image'] = self.render()
-    del obs['pixels']  # Remove 'pixels' to match original format.
+    # del obs['pixels']  # Remove 'pixels' to match original format.
     return obs
 
   def render(self, *args, **kwargs):

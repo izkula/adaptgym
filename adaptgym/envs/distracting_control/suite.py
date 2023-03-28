@@ -23,7 +23,7 @@ though.
 """
 try:
   from dm_control import suite  # pylint: disable=g-import-not-at-top
-  from dm_control.suite.wrappers import pixels  # pylint: disable=g-import-not-at-top
+  # from dm_control.suite.wrappers import pixels  # pylint: disable=g-import-not-at-top
 except ImportError:
   suite = None
 
@@ -35,6 +35,7 @@ from . import background
 from . import camera
 from . import color
 from . import suite_utils
+from . import pixels
 
 def is_available():
   return suite is not None
@@ -170,6 +171,7 @@ def load(domain_name,
       env,
       pixels_only=pixels_only,
       render_kwargs=render_kwargs,
-      observation_key=pixels_observation_key)
+      observation_key=pixels_observation_key,
+      delete_pixel_observation=True)
 
   return env

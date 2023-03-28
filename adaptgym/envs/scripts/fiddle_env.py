@@ -222,7 +222,7 @@ def main():
     name = 'cdmc_cheetah_run'
     name = 'cdmc_cartpole_swingup_sparse'
     name = 'ddmc_walker_walk'
-    name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
+    # name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
     envname, taskname = name.split('_', 1)
 
     from adaptgym import wrapped
