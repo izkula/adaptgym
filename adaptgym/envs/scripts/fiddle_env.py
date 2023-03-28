@@ -107,7 +107,8 @@ def main():
     elif envname == 'admc':
       env = wrapped.ADMC(taskname)
 
-    mode = 'display'
+    # mode = 'display'
+    mode = 'interactive'
     if mode == 'display':
         display(env)
     elif mode == 'gif':

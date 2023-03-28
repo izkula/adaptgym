@@ -100,10 +100,13 @@ class AdaptDMC_nonepisodic:
     obs = dict(time_step.observation)
     obs['image'] = self.render()
     done = time_step.last()
-    collision_tracker = self._env._base_env.exploration_tracker.collision_tracker
-    attention_tracker = self._env._base_env.exploration_tracker.attention_tracker
-    info = {'discount': np.array(time_step.discount, np.float32),
-            'collision_tracker':collision_tracker, 'attention_tracker': attention_tracker}
+    if hasattr(self._env._base_env, 'exploration_tracker'):
+      collision_tracker = self._env._base_env.exploration_tracker.collision_tracker
+      attention_tracker = self._env._base_env.exploration_tracker.attention_tracker
+      info = {'discount': np.array(time_step.discount, np.float32),
+              'collision_tracker':collision_tracker, 'attention_tracker': attention_tracker}
+    else:
+      info = {'discount': np.array(time_step.discount, np.float32)}
     return obs, reward, done, info
 
   def reset(self):
