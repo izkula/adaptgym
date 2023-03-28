@@ -233,7 +233,7 @@ class DDMC:
         continuous_video_frames = True
         do_just_background = True
         difficulty = 'easy'
-        specify_background = '0,0,1e6;1,1e6,2e6;0,2e6,1e9'
+        specify_background = '0,0,1e6;1,1e6,2e6;0,2e6,1e9'  # ABA
       else:
         dynamic = config.dynamic_ddmc
         num_videos = config.num_videos_ddmc
@@ -303,6 +303,7 @@ class DDMC:
         break
     obs = dict(time_step.observation)
     obs['image'] = self.render()
+    del obs['pixels']  # Remove 'pixels', to match original format.
     done = time_step.last()
     info = {'discount': np.array(time_step.discount, np.float32)}
     return obs, reward, done, info
@@ -311,6 +312,7 @@ class DDMC:
     time_step = self._env.reset()
     obs = dict(time_step.observation)
     obs['image'] = self.render()
+    del obs['pixels']  # Remove 'pixels' to match original format.
     return obs
 
   def render(self, *args, **kwargs):
