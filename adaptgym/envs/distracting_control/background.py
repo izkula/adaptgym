@@ -22,8 +22,9 @@ import collections
 from dm_control.rl import control
 import numpy as np
 
-import tensorflow as tf
 from dm_control.mujoco.wrapper import mjbindings
+
+import scipy.ndimage
 
 DAVIS17_TRAINING_VIDEOS = [
     'bear', 'bmx-bumps', 'boat', 'boxing-fisheye', 'breakdance-flare', 'bus',
@@ -61,8 +62,9 @@ def size_and_flatten(image, ref_height, ref_width):
   image_height, image_width = image.shape[:2]
 
   if image_height != ref_height or image_width != ref_width:
-    image = tf.cast(tf.image.resize(image, [ref_height, ref_width]), tf.uint8)
-  return tf.reshape(image, [-1]).numpy()
+    image = scipy.ndimage.zoom(image, (ref_height / image_height, ref_width / image_width, 1),
+                               order=1).astype(np.uint8)
+  return np.reshape(image, [-1])
 
 
 def blend_to_background(alpha, image, background):
@@ -133,7 +135,7 @@ class DistractingBackgroundEnv(control.Environment):
     else:
       # Use all videos if no specific ones were passed.
       if not dataset_videos:
-        dataset_videos = sorted(tf.io.gfile.listdir(dataset_path))
+        dataset_videos = sorted(os.listdir(dataset_path))
       # Replace video placeholders 'train'/'val' with the list of videos.
       elif dataset_videos in ['train', 'training']:
         dataset_videos = DAVIS17_TRAINING_VIDEOS
@@ -189,7 +191,7 @@ class DistractingBackgroundEnv(control.Environment):
         file_names = [
             os.path.join(path, fn)
             for path in self._video_paths
-            for fn in tf.io.gfile.listdir(path)
+            for fn in os.listdir(path)
         ]
         self._random_state.shuffle(file_names)
         # Load only the first n images for performance reasons.
@@ -222,9 +224,10 @@ class DistractingBackgroundEnv(control.Environment):
               if self.step_counter >= start_step and self.step_counter < end_step:
                 vid_id = int(float(id))
           video_path = self._video_paths[vid_id]
-        file_names = tf.io.gfile.listdir(video_path)
+        file_names = os.listdir(video_path)
 
-        # The above tf.io.gfile.listdir operation loads files in an arbitrary order.
+
+        # The above listdir operation loads files in an arbitrary order.
         # This is potentially a bug! I added a parameter to flag if frames should be
         # put into sequential order, which allows for smooth playing of video. I believe
         # setting this to "True" is in line with the intent of the paper.
