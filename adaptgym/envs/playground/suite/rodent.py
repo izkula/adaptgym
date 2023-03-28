@@ -597,3 +597,10 @@ def multiagent_labyrinth(environment_kwargs):
     agent = rodent.Rat(name="agent0")
     env = playgrounds.multiagent_labyrinth(agent, scale, environment_kwargs, include_tracker=False)
     return env
+
+@SUITE.add('benchmarking')
+def multiagent_novel_objects_step2_single_magenta(environment_kwargs):
+    scale = 0.1
+    agent = rodent.Rat(name="agent0")
+    env = playgrounds.multiagent_novel_objects_step2_single_magenta(agent, scale, environment_kwargs, include_tracker=False)
+    return env
