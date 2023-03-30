@@ -1,4 +1,6 @@
-"""Wrapped version of environments, that includes rendering of image observation."""
+"""Wrapped version of environments, that includes rendering of image observation.
+This is the format accepted by dreamerv2.
+"""
 
 import os
 import gym
