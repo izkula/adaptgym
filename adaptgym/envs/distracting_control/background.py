@@ -100,7 +100,9 @@ class DistractingBackgroundEnv(control.Environment):
                shuffle_buffer_size=None,
                randomize_background=1,
                continuous_video_frames=False,
-               specify_background=None):
+               specify_background=None,
+               divide_step_count_by=1,
+               ):
 
     if not 0 <= video_alpha <= 1:
       raise ValueError('`video_alpha` must be in the range [0, 1]')
@@ -115,6 +117,7 @@ class DistractingBackgroundEnv(control.Environment):
     self._current_img_index = 0
     self._randomize_background = randomize_background
     self._continuous_video_frames = continuous_video_frames
+    self._divide_step_count_by = divide_step_count_by
 
     self.step_counter = 0
     self.ep_counter = 0
@@ -208,8 +211,8 @@ class DistractingBackgroundEnv(control.Environment):
         else:
           vid_id = 0 #default
           for id, start_step, end_step in self.specify_background:
-            start_step = int(float(start_step))
-            end_step = int(float(end_step))
+            start_step = int(float(start_step)/self._divide_step_count_by)
+            end_step = int(float(end_step)/self._divide_step_count_by)
             if '&' in id:
               if self.step_counter >= start_step and self.step_counter < end_step:
                 ids = id.split(':')[0]
