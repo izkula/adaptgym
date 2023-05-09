@@ -96,6 +96,8 @@ def main():
     name = 'cdmc_cartpole_swingup_sparse'
     name = 'ddmc_walker_walk'
     name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
+    name = 'admc_sphero_novel_object'
+    name = 'admc_sphero_novel_object_unchanging'
     # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
     envname, taskname = name.split('_', 1)
 

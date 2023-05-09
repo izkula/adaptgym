@@ -962,6 +962,25 @@ def multiagent_novel_objects_step2_long(environment_kwargs):
     return env
 
 @SUITE.add('benchmarking')
+def novel_object(environment_kwargs):
+    # same as multiagent_novel_objects_step1step2_single_magenta()
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step1step2_single_magenta(agent, scale, environment_kwargs)
+    return env
+
+@SUITE.add('benchmarking')
+def novel_object_unchanging(environment_kwargs):
+    # same as multiagent_novel_objects_step2_single_magenta()
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step2_single_magenta(agent, scale, environment_kwargs)
+    return env
+
+
+@SUITE.add('benchmarking')
 def multiagent_novel_objects_step2_single_magenta(environment_kwargs):
     scale = 0.7
     agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
@@ -983,6 +1002,14 @@ def multiagent_novel_objects_step1step2_single_magenta_debug3e4(environment_kwar
     agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
                                      rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
     env = playgrounds.multiagent_novel_objects_step1step2_single_magenta_debug3e4(agent, scale, environment_kwargs)
+    return env
+
+@SUITE.add('benchmarking')
+def multiagent_novel_objects_step1step2_single_magenta_debug1e4(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step1step2_single_magenta_debug1e4(agent, scale, environment_kwargs)
     return env
 
 @SUITE.add('benchmarking')

@@ -19,6 +19,40 @@ def ADMC(taskname, done_every=500, **kwargs):
   env = SpoofEpisodicWrapper(env, done_every)
   return env
 
+# class SpoofEpisodicWrapper(gym.Wrapper):
+class SpoofEpisodicWrapper:
+  def __init__(self, env, done_every=500):
+    # super().__init__(env)
+    self._env = env
+    self.done_every = done_every
+    self.step_count = 0
+    self.last_obs = None
+    self.environment_done = None
+
+  def step(self, action):
+    self.step_count += 1
+
+    obs, reward, done, info = self._env.step(action)
+    self.last_obs = obs
+    self.environment_done = done
+
+    if self.step_count % self.done_every == 0:
+      print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
+      done = True
+
+    return obs, reward, done, info
+
+  def reset(self):
+    if self.last_obs is None or self.environment_done:
+      print('SpoofEpisodicWrapper: True environment reset')
+      return self._env.reset()
+    else:
+      print('SpoofEpisodicWrapper: Intercepting reset')
+      return self.last_obs
+
+  def __getattr__(self, name):
+    return getattr(self._env, name)
+
 
 class AdaptDMC_nonepisodic:
 
@@ -44,18 +78,20 @@ class AdaptDMC_nonepisodic:
                                                                    logging_params=logging_params,
                                                                    control_timestep=control_timestep,
                                                                    physics_timestep=physics_timestep,
-                                                                   reset_position_freq=reset_position_freq))
+                                                                   reset_position_freq=reset_position_freq,
+                                                                   use_global_step=use_global_step, ## Added this
+                                                                   ))
       # self._env = suite.load(domain, task, environment_kwargs=dict(aesthetic=aesthetic))
 
     else:
       assert task is None
       self._env = domain()
 
-    if 'multiagent' in task:
-      print('----> APPLYING SpecifyPrimaryAgent WRAPPER.')
-      primary_agent = self._env._task._walkers[self._env._task._primary_agent] # This is specified in the task.
-      primary_agent_name = primary_agent._mjcf_root.model # Gets the name specified in the task, i.e. 'agent0'
-      self._env = SpecifyPrimaryAgent(self._env, primary_agent_name, self._env.policies, use_global_step=use_global_step)
+    # if 'multiagent' in task:
+    print('----> APPLYING SpecifyPrimaryAgent WRAPPER.')
+    primary_agent = self._env._task._walkers[self._env._task._primary_agent] # This is specified in the task.
+    primary_agent_name = primary_agent._mjcf_root.model # Gets the name specified in the task, i.e. 'agent0'
+    self._env = SpecifyPrimaryAgent(self._env, primary_agent_name, self._env.policies, use_global_step=use_global_step)
 
     self._action_repeat = action_repeat
     self._size = size
@@ -325,40 +361,6 @@ class DDMC:
       raise ValueError("Only render mode 'rgb_array' is supported.")
     return self._env.physics.render(*self._size, camera_id=self._camera)
 
-
-# class SpoofEpisodicWrapper(gym.Wrapper):
-class SpoofEpisodicWrapper:
-  def __init__(self, env, done_every=500):
-    # super().__init__(env)
-    self._env = env
-    self.done_every = done_every
-    self.step_count = 0
-    self.last_obs = None
-    self.environment_done = None
-
-  def step(self, action):
-    self.step_count += 1
-
-    obs, reward, done, info = self._env.step(action)
-    self.last_obs = obs
-    self.environment_done = done
-
-    if self.step_count % self.done_every == 0:
-      print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
-      done = True
-
-    return obs, reward, done, info
-
-  def reset(self):
-    if self.last_obs is None or self.environment_done:
-      print('SpoofEpisodicWrapper: True environment reset')
-      return self._env.reset()
-    else:
-      print('SpoofEpisodicWrapper: Intercepting reset')
-      return self.last_obs
-
-  def __getattr__(self, name):
-    return getattr(self._env, name)
 
 class SpecifyPrimaryAgent:
   """Specify a primary agent and policies to control all
