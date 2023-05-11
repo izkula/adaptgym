@@ -109,6 +109,12 @@ class AdaptDMC_nonepisodic:
     self._camera = camera
     self._multiple_agents = multiple_agents
 
+    self._ignored_keys = []
+    for key, value in self._env.observation_spec().items():
+      if value.shape == (0,):
+        print(f"Ignoring empty observation key '{key}'.")
+        self._ignored_keys.append(key)
+
   @property
   def observation_space(self):
     spaces = {}
@@ -120,13 +126,13 @@ class AdaptDMC_nonepisodic:
     return gym.spaces.Dict(spaces)
 
   @property
-  def obs_space(self): # If different format than observation_space is needed.
+  def obs_space(self):  # If different format than observation_space is needed.
     spaces = {
         'image': gym.spaces.Box(0, 255, self._size + (3,), dtype=np.uint8),
         'reward': gym.spaces.Box(-np.inf, np.inf, (), dtype=np.float32),
-        'is_first': gym.spaces.Box(0, 1, (), dtype=np.bool),
-        'is_last': gym.spaces.Box(0, 1, (), dtype=np.bool),
-        'is_terminal': gym.spaces.Box(0, 1, (), dtype=np.bool),
+        'is_first': gym.spaces.Box(0, 1, (), dtype=bool),
+        'is_last': gym.spaces.Box(0, 1, (), dtype=bool),
+        'is_terminal': gym.spaces.Box(0, 1, (), dtype=bool),
     }
     for key, value in self._env.observation_spec().items():
       if key in self._ignored_keys:
