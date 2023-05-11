@@ -120,6 +120,26 @@ class AdaptDMC_nonepisodic:
     return gym.spaces.Dict(spaces)
 
   @property
+  def obs_space(self): # If different format than observation_space is needed.
+    spaces = {
+        'image': gym.spaces.Box(0, 255, self._size + (3,), dtype=np.uint8),
+        'reward': gym.spaces.Box(-np.inf, np.inf, (), dtype=np.float32),
+        'is_first': gym.spaces.Box(0, 1, (), dtype=np.bool),
+        'is_last': gym.spaces.Box(0, 1, (), dtype=np.bool),
+        'is_terminal': gym.spaces.Box(0, 1, (), dtype=np.bool),
+    }
+    for key, value in self._env.observation_spec().items():
+      if key in self._ignored_keys:
+        continue
+      if value.dtype == np.float64:
+        spaces[key] = gym.spaces.Box(-np.inf, np.inf, value.shape, np.float32)
+      elif value.dtype == np.uint8:
+        spaces[key] = gym.spaces.Box(0, 255, value.shape, np.uint8)
+      else:
+        raise NotImplementedError(value.dtype)
+    return spaces
+
+  @property
   def action_space(self):
     spec = self._env.action_spec()
     if isinstance(spec, list):
@@ -127,6 +147,10 @@ class AdaptDMC_nonepisodic:
     action = gym.spaces.Box(spec.minimum, spec.maximum, dtype=np.float32)
 
     return gym.spaces.Dict({'action': action})
+
+  @property
+  def act_space(self): # If different format than action_space is needed.
+    return {'action': self.action_space['action']}
 
   def step(self, action):
     action = action['action']
