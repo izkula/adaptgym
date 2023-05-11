@@ -56,7 +56,8 @@ class SpoofEpisodicWrapper:
 
 class AdaptDMC_nonepisodic:
 
-  def __init__(self, name, action_repeat=2, size=(64, 64), camera=None, aesthetic='default',
+  def __init__(self, name, action_repeat=2, size=(64, 64), camera=None,
+               aesthetic='default', # 'outdoor_natural'
                egocentric_camera=True, multiple_agents=False,
                env_params=None, logging_params=None,
                control_timestep=0.03, physics_timestep=0.005,
@@ -79,7 +80,8 @@ class AdaptDMC_nonepisodic:
                                                                    control_timestep=control_timestep,
                                                                    physics_timestep=physics_timestep,
                                                                    reset_position_freq=reset_position_freq,
-                                                                   use_global_step=use_global_step, ## Added this
+                                                                   use_global_step=use_global_step,
+                                                                   aesthetic=aesthetic,
                                                                    ))
       # self._env = suite.load(domain, task, environment_kwargs=dict(aesthetic=aesthetic))
 
