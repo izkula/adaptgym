@@ -158,18 +158,26 @@ class AdaptDMC_nonepisodic:
   def act_space(self): # If different format than action_space is needed.
     return {'action': self.action_space['action']}
 
+
   def step(self, action):
-    action = action['action']
-    assert np.isfinite(action).all(), action
-    reward = 0
+    assert np.isfinite(action['action']).all(), action['action']
+    reward = 0.0
     for _ in range(self._action_repeat):
-      time_step = self._env.step(action)
-      reward += time_step.reward or 0
+      time_step = self._env.step(action['action'])
+      reward += time_step.reward or 0.0
       if time_step.last():
         break
-    obs = dict(time_step.observation)
-    obs['image'] = self.render()
-    done = time_step.last()
+    assert time_step.discount in (0, 1)
+    obs = {
+        'reward': reward,
+        'is_first': False,
+        'is_last': time_step.last(),
+        'is_terminal': time_step.discount == 0,
+        'image': self._env.physics.render(*self._size, camera_id=self._camera),
+    }
+    obs.update({
+        k: v for k, v in dict(time_step.observation).items()
+        if k not in self._ignored_keys})
     if hasattr(self._env._base_env, 'exploration_tracker'):
       collision_tracker = self._env._base_env.exploration_tracker.collision_tracker
       attention_tracker = self._env._base_env.exploration_tracker.attention_tracker
@@ -177,16 +185,52 @@ class AdaptDMC_nonepisodic:
               'collision_tracker':collision_tracker, 'attention_tracker': attention_tracker}
     else:
       info = {'discount': np.array(time_step.discount, np.float32)}
-    return obs, reward, done, info
+    return obs
 
   def reset(self):
     time_step = self._env.reset()
-    if self._multiple_agents:
-      obs = dict(time_step.observation[0])
-    else:
-      obs = dict(time_step.observation)
-    obs['image'] = self.render()
+    obs = {
+        'reward': 0.0,
+        'is_first': True,
+        'is_last': False,
+        'is_terminal': False,
+        'image': self._env.physics.render(*self._size, camera_id=self._camera),
+    }
+    obs.update({
+        k: v for k, v in dict(time_step.observation).items()
+        if k not in self._ignored_keys})
     return obs
+
+
+  # def step(self, action):
+  #   action = action['action']
+  #   assert np.isfinite(action).all(), action
+  #   reward = 0
+  #   for _ in range(self._action_repeat):
+  #     time_step = self._env.step(action)
+  #     reward += time_step.reward or 0
+  #     if time_step.last():
+  #       break
+  #   obs = dict(time_step.observation)
+  #   obs['image'] = self.render()
+  #   done = time_step.last()
+  #   if hasattr(self._env._base_env, 'exploration_tracker'):
+  #     collision_tracker = self._env._base_env.exploration_tracker.collision_tracker
+  #     attention_tracker = self._env._base_env.exploration_tracker.attention_tracker
+  #     info = {'discount': np.array(time_step.discount, np.float32),
+  #             'collision_tracker':collision_tracker, 'attention_tracker': attention_tracker}
+  #   else:
+  #     info = {'discount': np.array(time_step.discount, np.float32)}
+  #   return obs, reward, done, info
+
+  # def reset(self):
+  #   time_step = self._env.reset()
+  #   if self._multiple_agents:
+  #     obs = dict(time_step.observation[0])
+  #   else:
+  #     obs = dict(time_step.observation)
+  #   obs['image'] = self.render()
+  #   return obs
 
   def render(self, *args, **kwargs):
     if kwargs.get('mode', 'rgb_array') != 'rgb_array':
