@@ -11,13 +11,13 @@ from dm_env import specs
 import adaptgym.envs.playground.policies as pol
 
 
-def ADMC(taskname, done_every=500, **kwargs):
-  """Wrap AdaptDMC_nonepisodic to spoof it being episodic
-   every 'done_every' steps, without the environment actually resetting.
-   """
-  env = AdaptDMC_nonepisodic(taskname, **kwargs)
-  env = SpoofEpisodicWrapper(env, done_every)
-  return env
+# def ADMC(taskname, done_every=500, **kwargs):
+#   """Wrap AdaptDMC_nonepisodic to spoof it being episodic
+#    every 'done_every' steps, without the environment actually resetting.
+#    """
+#   env = AdaptDMC_nonepisodic(taskname, **kwargs)
+#   env = SpoofEpisodicWrapper(env, done_every)
+#   return env
 
 # # class SpoofEpisodicWrapper(gym.Wrapper):
 # class SpoofEpisodicWrapper:
@@ -89,7 +89,8 @@ class SpoofEpisodicWrapper:
   def __getattr__(self, name):
     return getattr(self._env, name)
 
-class AdaptDMC_nonepisodic:
+# class AdaptDMC_nonepisodic:
+class ADMC:
 
   def __init__(self, name, action_repeat=2, size=(64, 64), camera=None,
                aesthetic='default', # 'outdoor_natural'
@@ -129,6 +130,9 @@ class AdaptDMC_nonepisodic:
     primary_agent = self._env._task._walkers[self._env._task._primary_agent] # This is specified in the task.
     primary_agent_name = primary_agent._mjcf_root.model # Gets the name specified in the task, i.e. 'agent0'
     self._env = SpecifyPrimaryAgent(self._env, primary_agent_name, self._env.policies, use_global_step=use_global_step)
+
+    self._env = SpoofEpisodicWrapper(self._env, done_every=500)
+
 
     self._action_repeat = action_repeat
     self._size = size
