@@ -19,40 +19,75 @@ def ADMC(taskname, done_every=500, **kwargs):
   env = SpoofEpisodicWrapper(env, done_every)
   return env
 
-# class SpoofEpisodicWrapper(gym.Wrapper):
+# # class SpoofEpisodicWrapper(gym.Wrapper):
+# class SpoofEpisodicWrapper:
+#   def __init__(self, env, done_every=500):
+#     # super().__init__(env)
+#     self._env = env
+#     self.done_every = done_every
+#     self.step_count = 0
+#     self.last_obs = None
+#     self.environment_done = None
+#
+#   def step(self, action):
+#     self.step_count += 1
+#
+#     # obs, reward, done, info = self._env.step(action)
+#     obs = self._env.step(action)
+#     self.last_obs = obs
+#     self.environment_done = done
+#
+#     if self.step_count % self.done_every == 0:
+#       print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
+#       done = True
+#
+#     return obs
+#     # return obs, reward, done, info
+#
+#   def reset(self):
+#     if self.last_obs is None or self.environment_done:
+#       print('SpoofEpisodicWrapper: True environment reset')
+#       return self._env.reset()
+#     else:
+#       print('SpoofEpisodicWrapper: Intercepting reset')
+#       return self.last_obs
+#
+#   def __getattr__(self, name):
+#     return getattr(self._env, name)
+
 class SpoofEpisodicWrapper:
   def __init__(self, env, done_every=500):
     # super().__init__(env)
     self._env = env
     self.done_every = done_every
     self.step_count = 0
-    self.last_obs = None
+    self.last_time_step = None
     self.environment_done = None
 
   def step(self, action):
     self.step_count += 1
 
-    obs, reward, done, info = self._env.step(action)
-    self.last_obs = obs
-    self.environment_done = done
+    time_step = self._env.step(action)
+    self.last_time_step = time_step
+    # self.environment_done = time_step.last()
+    self.environment_done = time_step['is_last']
 
     if self.step_count % self.done_every == 0:
       print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
-      done = True
+      time_step['is_last'] = True
 
-    return obs, reward, done, info
+    return time_step
 
   def reset(self):
-    if self.last_obs is None or self.environment_done:
+    if self.last_time_step is None or self.environment_done:
       print('SpoofEpisodicWrapper: True environment reset')
       return self._env.reset()
     else:
       print('SpoofEpisodicWrapper: Intercepting reset')
-      return self.last_obs
+      return self.last_time_step
 
   def __getattr__(self, name):
     return getattr(self._env, name)
-
 
 class AdaptDMC_nonepisodic:
 
@@ -157,7 +192,6 @@ class AdaptDMC_nonepisodic:
   @property
   def act_space(self): # If different format than action_space is needed.
     return {'action': self.action_space['action']}
-
 
   def step(self, action):
     assert np.isfinite(action['action']).all(), action['action']
