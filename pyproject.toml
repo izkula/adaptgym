@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adaptgym"
-version = "0.1.32"
+version = "0.1.34"
 description = ""
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 #packages = [
@@ -19,7 +19,7 @@ matplotlib=">=3.4.2"
 dm-control="1.0.7"
 dm-env="1.5"
 dm-tree="0.1.7"
-crafter="1.8.0"
+#crafter="1.8"
 Pillow="8.2.0"
 pytest = "^5.2"
 protobuf = "3.20.3"

@@ -69,12 +69,13 @@ class SpoofEpisodicWrapper:
 
     time_step = self._env.step(action)
     self.last_time_step = time_step
-    # self.environment_done = time_step.last()
-    self.environment_done = time_step['is_last']
+    self.environment_done = time_step.last()
+    # self.environment_done = time_step['is_last']
 
     if self.step_count % self.done_every == 0:
       print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
-      time_step['is_last'] = True
+      time_step = dm_env.TimeStep(dm_env.StepType.LAST, time_step.reward, time_step.discount, time_step.observation)
+      # time_step['is_last'] = True
 
     return time_step
 
