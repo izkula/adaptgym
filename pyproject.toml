@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adaptgym"
-version = "0.1.34"
+version = "0.1.36"
 description = ""
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 #packages = [

@@ -35,3 +35,52 @@ def novel_object_debug(environment_kwargs):
                                      rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
     env = playgrounds.multiagent_novel_objects_step1step2_single_magenta_debug1e4(agent, scale, environment_kwargs)
     return env
+
+
+############################################################
+##########    Experimental tasks below    ##################
+############################################################
+
+@SUITE.add('benchmarking')
+def novel_object_2ball(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step2step3_magenta_to_yellow(agent, scale, environment_kwargs)
+    return env
+
+
+@SUITE.add('benchmarking')
+def novel_object_2ball_reverse(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step2step3_yellow_to_magenta(agent, scale, environment_kwargs)
+    return env
+
+
+@SUITE.add('benchmarking')
+def novel_object_2ball_debug(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step2step3_magenta_to_yellow_debug5e2(agent, scale, environment_kwargs)
+    return env
+
+
+@SUITE.add('benchmarking')
+def novel_object_2ball_reverse_debug(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_novel_objects_step2step3_yellow_to_magenta_debug5e2(agent, scale, environment_kwargs)
+    return env
+
+
+@SUITE.add('benchmarking')
+def labyrinth_black(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_labyrinth_black(agent, scale, environment_kwargs)
+    return env
