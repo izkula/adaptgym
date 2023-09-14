@@ -42,10 +42,13 @@ def gif(env, num_ep=3, num_frames=3000):
         for i in range(num_frames):
             action = acts.sample()
             results = [env.step(action)]
-            obs, _, done = zip(*[p[:3] for p in results])
-            obs = list(obs)
-            plt.imshow(obs[0]['image']), plt.savefig(f'{i}.png')
-            if done[0]: # Assumes a single environment
+            # obs, _, done = zip(*[p[:3] for p in results])
+            # obs = list(obs)
+            # img = obs[0]['image']
+            img = results[0]['image']
+            plt.imshow(img), plt.savefig(f'{i}.png')
+            # if done[0]: # Assumes a single environment
+            if results[0]['is_last']:  # Assumes a single environment
                 break
 
         images = []
@@ -67,9 +70,10 @@ def display(env, num_ep=3, num_frames=3000):
             # action = np.random.uniform(acts.minimum, acts.maximum, acts.shape)
             action = acts.sample()
             results = [env.step(action)]
-            obs, _, done = zip(*[p[:3] for p in results])
-            obs = list(obs)
-            img = obs[0]['image']
+            # obs, _, done = zip(*[p[:3] for p in results])
+            # obs = list(obs)
+            # img = obs[0]['image']
+            img = results[0]['image']
             resized = cv2.resize(img, (400, 400), interpolation=cv2.INTER_AREA)
             resized = np.flip(resized, axis=2)
             img = resized.astype('uint8')
@@ -85,7 +89,8 @@ def display(env, num_ep=3, num_frames=3000):
 
             cv2.imshow('image', img)
             cv2.waitKey(10)
-            if done[0]:  # Assumes a single environment
+            # if done[0]:  # Assumes a single environment
+            if results[0]['is_last']:  # Assumes a single environment
                 break
         # Reset
         env.reset()
@@ -116,9 +121,9 @@ def main():
     # mode = 'display'
     mode = 'interactive'
     if mode == 'display':
-        display(env)
+        display(env, num_frames=1)
     elif mode == 'gif':
-        gif(env)
+        gif(env, num_frames=1)
     elif mode == 'interactive':
         interactive(env, envname)
 
