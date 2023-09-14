@@ -14,7 +14,7 @@ Install from online:
 
 or
 
-`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --no-cache-dir adaptgym==0.1.38`
+`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --no-cache-dir adaptgym==0.1.39`
 
 
 To update and publish. Change the version number in pyproject.toml, then:
