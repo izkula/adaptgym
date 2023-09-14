@@ -29,11 +29,21 @@ examples = {
   4: {'env_name': 'admc_sphero_mazemultiagentInteract19_7_novel_example_b4_2_black', 'action': [(-1, 0)]},
 }
 
+examples = {
+  # 0: {'env_name': 'admc_sphero_mazemultiagentInteract15_example_8', 'action': [(-1, 0)]},
+  1: {'env_name': 'admc_sphero_object_example1_magenta', 'action': [(-1, 0)]},
+  2: {'env_name': 'admc_sphero_object_example1_yellow', 'action': [(-1, 0)]},
+  3: {'env_name': 'admc_sphero_object_example1_white', 'action': [(-1, 0)]},
+  4: {'env_name': 'admc_sphero_object_example1_empty', 'action': [(-1, 0)]},
+}
+
+
 if __name__ == "__main__":
   for which_example in [1,2,3,4]:
     print(which_example)
     home = os.path.expanduser("~")
-    logdir = pathlib.PosixPath(f'{home}/logs/GEN-EXAMPLE_EPS_black/')
+    logdir = pathlib.PosixPath(f'{home}/logs/EXAMPLE_EPS/')
+    # logdir = pathlib.PosixPath(f'{home}/logs/GEN-EXAMPLE_EPS_black/')
     os.makedirs(logdir, exist_ok=True)
     gifdir = logdir / 'gifs'
     os.makedirs(gifdir, exist_ok=True)

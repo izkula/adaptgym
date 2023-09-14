@@ -472,7 +472,7 @@ def mazemultiagentInteract19_7_novel_example_b3_2_black(environment_kwargs):
   scale = 0.7
   agent = jumping_ball.RollingBall(name="agent0", size=0.8 * scale,
                                    rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
-  env = playgrounds.mazemultiagentInteract19_7_novel_example_b3_2_black(agent, scale, environment_kwargs)
+  env = playgrounds.mazemultiagentInteract19_7_novel_example_b3_2(agent, scale, environment_kwargs)
   return env
 
 @SUITE.add('benchmarking')

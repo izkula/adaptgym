@@ -101,6 +101,7 @@ def main():
     name = 'admc_sphero_labyrinth_black'
     name = 'admc_sphero_novel_object_2ball_debug'
     name = 'admc_sphero_novel_object_2ball_reverse_debug'
+    name = 'admc_sphero_object_example1_magenta'
     # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
     envname, taskname = name.split('_', 1)
 
