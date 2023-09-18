@@ -100,13 +100,19 @@ class ADMC:
                control_timestep=0.03, physics_timestep=0.005,
                reset_position_freq=0, use_global_step=True,
                logdir=None, mode='train',
+               record_every_k_timesteps=20,
+               flush_logger_every=2000,
+               grid_density=20,
+               episodes_for_summary_metrics=20,
                ):
 
     if logdir is None:
       print('No logdir provided, not logging playground trajectories.')
     else:
-      logging_params = {'logger': None, 'grid_density': 20, 'episode_length': None,
-                        'record_every_k_timesteps': 20, 'episodes_for_summary_metrics': 20,
+      logging_params = {'logger': None, 'grid_density': grid_density, 'episode_length': None,
+                        'record_every_k_timesteps': record_every_k_timesteps,
+                        'flush_logger_every': flush_logger_every,
+                        'episodes_for_summary_metrics': episodes_for_summary_metrics,
                         'logdir': logdir, 'env_raw_output_file_name': f'log_{mode}_env0.csv'}
 
     domain, task = name.split('_', 1)

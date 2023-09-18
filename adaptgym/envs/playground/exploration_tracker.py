@@ -64,6 +64,7 @@ class ExplorationTracker:
             self.record_every_k_timesteps = params['record_every_k_timesteps']
             self.episodes_for_summary_metrics = params['episodes_for_summary_metrics']
             self.logdir = params['logdir']
+            self.flush_data_every = params['flush_logger_every']
 
         else:
             self.logger = None
@@ -73,9 +74,12 @@ class ExplorationTracker:
             self.record_every_k_timesteps = 20
             self.episodes_for_summary_metrics = 20
             self.logdir = Path(f'/home/{getpass.getuser()}/logs/')
+            self.flush_data_every = 2000
             # self.logdir = Path(f'/home/{getpass.getuser()}/gendreamer/logs/')
 
-        self.flush_data_every = 2000 # Number of steps for flushing data (relevant in nonepisodic instances)
+        # self.flush_data_every = 2000 # Number of steps for flushing data (relevant in nonepisodic instances)
+        # self.flush_data_every = 2000 # Number of steps for flushing data (relevant in nonepisodic instances)
+
 
         print(f'Logging exploration information to {self.logdir / self.env_raw_output_file_name}')
 
