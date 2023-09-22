@@ -3,19 +3,23 @@
 Environments for assessing agent adaptation.
 
 ### Installation
-From the adaptgym/ directory:
-
-Local install:
-`poetry lock --no-update`
-`poetry install`
 
 Install from online:
 `pip install -i https://test.pypi.org/simple/ adaptgym`
 
-or
+or to specify a specific version:
 
 `pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --no-cache-dir adaptgym==0.1.40`
 
+### Playing around with the environments
+See `adaptgym/envs/scripts/fiddle_env.py` to visualize and interact with the environments.
+
+
+### Notes:
+
+Local install (from the adaptgym/ directory)
+`poetry lock --no-update`
+`poetry install`
 
 To update and publish. Change the version number in pyproject.toml, then:
 `poetry build`

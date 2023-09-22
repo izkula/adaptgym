@@ -11,6 +11,38 @@ from dm_control import viewer
 
 import cv2
 
+def main():
+    name = 'cdmc_cheetah_run'
+    name = 'cdmc_cartpole_swingup_sparse'
+    name = 'ddmc_walker_walk'
+    name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
+    name = 'admc_sphero_novel_object'
+    name = 'admc_sphero_novel_object_unchanging'
+    name = 'admc_sphero_labyrinth_black'
+    name = 'admc_sphero_novel_object_2ball_debug'
+    name = 'admc_sphero_novel_object_2ball_reverse_debug'
+    name = 'admc_sphero_object_example7_magenta'
+    # name = 'admc_sphero_labyrinth_black'
+    # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
+    envname, taskname = name.split('_', 1)
+
+    from adaptgym import wrapped
+    if envname == 'cdmc':
+      env = wrapped.CDMC(taskname)
+    elif envname == 'ddmc':
+      env = wrapped.DDMC(taskname)
+    elif envname == 'admc':
+      env = wrapped.ADMC(taskname)
+
+    # mode = 'gif'
+    mode = 'interactive'
+    if mode == 'display':
+        display(env, num_frames=1)
+    elif mode == 'gif':
+        gif(env, num_frames=1)
+    elif mode == 'interactive':
+        interactive(env, envname)
+
 
 def interactive(env, envname, do_random=True, n_wrappers=0):
     if envname == 'admc':
@@ -94,38 +126,6 @@ def display(env, num_ep=3, num_frames=3000):
                 break
         # Reset
         env.reset()
-
-
-def main():
-    name = 'cdmc_cheetah_run'
-    name = 'cdmc_cartpole_swingup_sparse'
-    name = 'ddmc_walker_walk'
-    name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
-    name = 'admc_sphero_novel_object'
-    name = 'admc_sphero_novel_object_unchanging'
-    name = 'admc_sphero_labyrinth_black'
-    name = 'admc_sphero_novel_object_2ball_debug'
-    name = 'admc_sphero_novel_object_2ball_reverse_debug'
-    name = 'admc_sphero_object_example7_magenta'
-    # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
-    envname, taskname = name.split('_', 1)
-
-    from adaptgym import wrapped
-    if envname == 'cdmc':
-      env = wrapped.CDMC(taskname)
-    elif envname == 'ddmc':
-      env = wrapped.DDMC(taskname)
-    elif envname == 'admc':
-      env = wrapped.ADMC(taskname)
-
-    mode = 'gif'
-    # mode = 'interactive'
-    if mode == 'display':
-        display(env, num_frames=1)
-    elif mode == 'gif':
-        gif(env, num_frames=1)
-    elif mode == 'interactive':
-        interactive(env, envname)
 
 
 if __name__ == "__main__":

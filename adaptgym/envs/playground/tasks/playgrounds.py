@@ -706,7 +706,7 @@ def multiagent_object_example2(agent, scale, environment_kwargs, include_tracker
 
 
 def multiagent_object_example3(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
-  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear. Start somewhat close to object."""
   if color == 'yellow':
     rgb1 = [1.0, 1., 0]
     rgb2 = [0.8, 0.8, 0]
@@ -764,7 +764,7 @@ def multiagent_object_example3(agent, scale, environment_kwargs, include_tracker
   return env
 
 def multiagent_object_example4(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
-  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear. Start very close to object."""
   if color == 'yellow':
     rgb1 = [1.0, 1., 0]
     rgb2 = [0.8, 0.8, 0]

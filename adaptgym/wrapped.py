@@ -11,86 +11,6 @@ from dm_env import specs
 import adaptgym.envs.playground.policies as pol
 
 
-# def ADMC(taskname, done_every=500, **kwargs):
-#   """Wrap AdaptDMC_nonepisodic to spoof it being episodic
-#    every 'done_every' steps, without the environment actually resetting.
-#    """
-#   env = AdaptDMC_nonepisodic(taskname, **kwargs)
-#   env = SpoofEpisodicWrapper(env, done_every)
-#   return env
-
-# # class SpoofEpisodicWrapper(gym.Wrapper):
-# class SpoofEpisodicWrapper:
-#   def __init__(self, env, done_every=500):
-#     # super().__init__(env)
-#     self._env = env
-#     self.done_every = done_every
-#     self.step_count = 0
-#     self.last_obs = None
-#     self.environment_done = None
-#
-#   def step(self, action):
-#     self.step_count += 1
-#
-#     # obs, reward, done, info = self._env.step(action)
-#     obs = self._env.step(action)
-#     self.last_obs = obs
-#     self.environment_done = done
-#
-#     if self.step_count % self.done_every == 0:
-#       print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
-#       done = True
-#
-#     return obs
-#     # return obs, reward, done, info
-#
-#   def reset(self):
-#     if self.last_obs is None or self.environment_done:
-#       print('SpoofEpisodicWrapper: True environment reset')
-#       return self._env.reset()
-#     else:
-#       print('SpoofEpisodicWrapper: Intercepting reset')
-#       return self.last_obs
-#
-#   def __getattr__(self, name):
-#     return getattr(self._env, name)
-
-class SpoofEpisodicWrapper:
-  def __init__(self, env, done_every=500):
-    # super().__init__(env)
-    self._env = env
-    self.done_every = done_every
-    self.step_count = 0
-    self.last_time_step = None
-    self.environment_done = None
-
-  def step(self, action):
-    self.step_count += 1
-
-    time_step = self._env.step(action)
-    self.last_time_step = time_step
-    self.environment_done = time_step.last()
-    # self.environment_done = time_step['is_last']
-
-    if self.step_count % self.done_every == 0:
-      print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
-      time_step = dm_env.TimeStep(dm_env.StepType.LAST, time_step.reward, time_step.discount, time_step.observation)
-      # time_step['is_last'] = True
-
-    return time_step
-
-  def reset(self):
-    if self.last_time_step is None or self.environment_done:
-      print('SpoofEpisodicWrapper: True environment reset')
-      return self._env.reset()
-    else:
-      print('SpoofEpisodicWrapper: Intercepting reset')
-      return self.last_time_step
-
-  def __getattr__(self, name):
-    return getattr(self._env, name)
-
-# class AdaptDMC_nonepisodic:
 class ADMC:
 
   def __init__(self, name, action_repeat=2, size=(64, 64), camera=None,
@@ -660,3 +580,39 @@ class SpecifyPrimaryAgent:
   @property
   def physics(self):
     return self._env.physics
+
+
+class SpoofEpisodicWrapper:
+  def __init__(self, env, done_every=500):
+    # super().__init__(env)
+    self._env = env
+    self.done_every = done_every
+    self.step_count = 0
+    self.last_time_step = None
+    self.environment_done = None
+
+  def step(self, action):
+    self.step_count += 1
+
+    time_step = self._env.step(action)
+    self.last_time_step = time_step
+    self.environment_done = time_step.last()
+    # self.environment_done = time_step['is_last']
+
+    if self.step_count % self.done_every == 0:
+      print(f'SpoofEpisodicWrapper: Sending done based on step_count ({self.step_count}) and done_every {self.done_every}')
+      time_step = dm_env.TimeStep(dm_env.StepType.LAST, time_step.reward, time_step.discount, time_step.observation)
+      # time_step['is_last'] = True
+
+    return time_step
+
+  def reset(self):
+    if self.last_time_step is None or self.environment_done:
+      print('SpoofEpisodicWrapper: True environment reset')
+      return self._env.reset()
+    else:
+      print('SpoofEpisodicWrapper: Intercepting reset')
+      return self.last_time_step
+
+  def __getattr__(self, name):
+    return getattr(self._env, name)
