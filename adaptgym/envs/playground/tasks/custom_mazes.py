@@ -3836,6 +3836,300 @@ vars['object_example'] =     ".....................\n" \
 
 
 
+
+height['object_example2'] = "999999999999999999999\n" \
+                            "9                   9\n" \
+                            "999999999999999999999\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "999999999999999999999\n"
+
+mazes['object_example2'] =   "*********************\n" \
+                             "* 1 2 3 4           *\n" \
+                             "*********************\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                  G*\n" \
+                             "*                   *\n" \
+                             "*         0         *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*********************\n"
+
+walls['object_example2'] =   "*********************\n" \
+                             "*                   *\n" \
+                             "*********************\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*********************\n"
+
+vars['object_example2'] =    ".....................\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".....................\n"
+
+
+
+height['object_example3'] = "999999999999999999999\n" \
+                            "9                   9\n" \
+                            "999999999999999999999\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "999999999999999999999\n"
+
+mazes['object_example3'] =   "*********************\n" \
+                             "* 1 2 3 4           *\n" \
+                             "*********************\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*         0         *\n" \
+                             "*                   *\n" \
+                             "*                  G*\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*********************\n"
+
+walls['object_example3'] =   "*********************\n" \
+                             "*                   *\n" \
+                             "*********************\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*********************\n"
+
+vars['object_example3'] =    ".....................\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".....................\n"
+
+
+height['object_example4'] = "999999999999999999999\n" \
+                            "9                   9\n" \
+                            "999999999999999999999\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "9                   9\n" \
+                            "999999999999999999999\n"
+
+mazes['object_example4'] =   "*********************\n" \
+                             "* 1 2 3 4           *\n" \
+                             "*********************\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                  G*\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*    0              *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*********************\n"
+
+walls['object_example4'] =   "*********************\n" \
+                             "*                   *\n" \
+                             "*********************\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*                   *\n" \
+                             "*********************\n"
+
+vars['object_example4'] =    ".....................\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAA.\n" \
+                             ".....................\n"
+
+
+
 height['sparse_goal'] =     "99999999999999999999999\n" \
                             "99                   99\n" \
                             "99999999999999999999999\n" \

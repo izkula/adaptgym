@@ -644,3 +644,354 @@ def multiagent_object_example1(agent, scale, environment_kwargs, include_tracker
                                 start_pos=start_pos),
     }
   return env
+
+
+def multiagent_object_example2(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear. Object slightly off center"""
+  if color == 'yellow':
+    rgb1 = [1.0, 1., 0]
+    rgb2 = [0.8, 0.8, 0]
+  elif color == 'magenta':
+    rgb1 = [1.0, 0, 1.0]
+    rgb2 = [0.8, 0, 0.8]
+  elif color == 'white':
+    rgb1 = [1.0, 1.0, 1.0]
+    rgb2 = [0.8, 0.8, 0.8]
+
+
+  m, v, h, w = custom_mazes.get_custom_maze(id='object_example')
+  primary_agent = '0'
+  agents = {}
+  agents[primary_agent] = agent
+  agents['1'] = jumping_ball.RollingBall(name="object1", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+                                        rgb1=rgb1, rgb2=rgb2, mass=1, friction=1.)
+  # agents['2'] = jumping_ball.RollingBall(name="object2", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+  #                                        rgb1=[1.0, 0., 1.], rgb2=[0.8, 0., 0.8], mass=1, friction=1.)
+  # agents['3'] = jumping_ball.RollingBall(name="object3", size=[0.7 * scale, 0.7 * scale, 1.1 * scale], rgb1=[1.0, 0., 0],  rgb2=[0.8, 0., 0], mass=2, friction=1.)
+  # agents['4'] = jumping_ball.RollingBall(name="object4", size=[1.1 * scale, 1.1 * scale, 1.1 * scale], rgb1=[0.0, 0., 1.0],  rgb2=[0., 0., 0.8], mass=0.1, friction=1.)
+
+  # reward_args = {'goal': 'velocity', 'xvel': 3.0}
+  arena, task = templates.maze_goal_template(m, v, agents, primary_agent, scale, h, w, reward_args=None,
+                                             aliveness_reward=0.01, aliveness_thresh=-1.1, continuous_aliveness=True,
+                                             accel_cost_scale=50.0, vel_cost_scale=0.0, target_height=40.0,
+                                             random_seed=1, randomize_spawn_rotation=False,
+                                             # spawn_rotation_radians = {'0': 0 * np.pi / 2},
+                                             spawn_rotation_radians={'0': 3 * np.pi / 2},
+                                             z_height=12, border_scale=1,
+                                             control_timestep=float(environment_kwargs['control_timestep']),
+                                             physics_timestep=float(environment_kwargs['physics_timestep']),
+                                             wall_overwrite_color='black',
+                                             )
+  env = composer.Environment(time_limit=MAX_TIME, task=task,
+                             random_state=np.random.RandomState(12345),
+                             strip_singleton_obs_buffer_dim=True)
+  if include_tracker:
+    add_expl_tracker(env, primary_agent, environment_kwargs)
+  env.reset()
+  control_timestep = float(environment_kwargs['control_timestep'])
+  fs = int(1.0 / control_timestep)
+  s = scale * 1.0
+  reset_position_freq = environment_kwargs['reset_position_freq']
+  start_pos = [0 * s, -2 * s]
+  env.policies = {
+    'object1': functools.partial(pol.object_appear, walker=agents['1'],
+                                step_appear=step_appear,
+                                step_disappear=None,
+                                start_pos=[2 * s, 8 * s]),
+
+    'agent0': functools.partial(pol.reset_position, walker=agents['0'], reset_position_freq=reset_position_freq,
+                                start_pos=start_pos),
+    }
+  return env
+
+
+def multiagent_object_example3(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  if color == 'yellow':
+    rgb1 = [1.0, 1., 0]
+    rgb2 = [0.8, 0.8, 0]
+  elif color == 'magenta':
+    rgb1 = [1.0, 0, 1.0]
+    rgb2 = [0.8, 0, 0.8]
+  elif color == 'white':
+    rgb1 = [1.0, 1.0, 1.0]
+    rgb2 = [0.8, 0.8, 0.8]
+
+
+  m, v, h, w = custom_mazes.get_custom_maze(id='object_example2')
+  primary_agent = '0'
+  agents = {}
+  agents[primary_agent] = agent
+  agents['1'] = jumping_ball.RollingBall(name="object1", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+                                        rgb1=rgb1, rgb2=rgb2, mass=1, friction=1.)
+  # agents['2'] = jumping_ball.RollingBall(name="object2", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+  #                                        rgb1=[1.0, 0., 1.], rgb2=[0.8, 0., 0.8], mass=1, friction=1.)
+  # agents['3'] = jumping_ball.RollingBall(name="object3", size=[0.7 * scale, 0.7 * scale, 1.1 * scale], rgb1=[1.0, 0., 0],  rgb2=[0.8, 0., 0], mass=2, friction=1.)
+  # agents['4'] = jumping_ball.RollingBall(name="object4", size=[1.1 * scale, 1.1 * scale, 1.1 * scale], rgb1=[0.0, 0., 1.0],  rgb2=[0., 0., 0.8], mass=0.1, friction=1.)
+
+  # reward_args = {'goal': 'velocity', 'xvel': 3.0}
+  arena, task = templates.maze_goal_template(m, v, agents, primary_agent, scale, h, w, reward_args=None,
+                                             aliveness_reward=0.01, aliveness_thresh=-1.1, continuous_aliveness=True,
+                                             accel_cost_scale=50.0, vel_cost_scale=0.0, target_height=40.0,
+                                             random_seed=1, randomize_spawn_rotation=False,
+                                             # spawn_rotation_radians = {'0': 0 * np.pi / 2},
+                                             spawn_rotation_radians={'0': 3 * np.pi / 2},
+                                             z_height=12, border_scale=1,
+                                             control_timestep=float(environment_kwargs['control_timestep']),
+                                             physics_timestep=float(environment_kwargs['physics_timestep']),
+                                             wall_overwrite_color='black',
+                                             )
+  env = composer.Environment(time_limit=MAX_TIME, task=task,
+                             random_state=np.random.RandomState(12345),
+                             strip_singleton_obs_buffer_dim=True)
+  if include_tracker:
+    add_expl_tracker(env, primary_agent, environment_kwargs)
+  env.reset()
+  control_timestep = float(environment_kwargs['control_timestep'])
+  fs = int(1.0 / control_timestep)
+  s = scale * 1.0
+  reset_position_freq = environment_kwargs['reset_position_freq']
+  start_pos = [0 * s, -2 * s]
+  env.policies = {
+    'object1': functools.partial(pol.object_appear, walker=agents['1'],
+                                step_appear=step_appear,
+                                step_disappear=None,
+                                start_pos=[0 * s, 8 * s]),
+
+    'agent0': functools.partial(pol.reset_position, walker=agents['0'], reset_position_freq=reset_position_freq,
+                                start_pos=start_pos),
+    }
+  return env
+
+def multiagent_object_example4(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  if color == 'yellow':
+    rgb1 = [1.0, 1., 0]
+    rgb2 = [0.8, 0.8, 0]
+  elif color == 'magenta':
+    rgb1 = [1.0, 0, 1.0]
+    rgb2 = [0.8, 0, 0.8]
+  elif color == 'white':
+    rgb1 = [1.0, 1.0, 1.0]
+    rgb2 = [0.8, 0.8, 0.8]
+
+
+  m, v, h, w = custom_mazes.get_custom_maze(id='object_example3')
+  primary_agent = '0'
+  agents = {}
+  agents[primary_agent] = agent
+  agents['1'] = jumping_ball.RollingBall(name="object1", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+                                        rgb1=rgb1, rgb2=rgb2, mass=1, friction=1.)
+  # agents['2'] = jumping_ball.RollingBall(name="object2", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+  #                                        rgb1=[1.0, 0., 1.], rgb2=[0.8, 0., 0.8], mass=1, friction=1.)
+  # agents['3'] = jumping_ball.RollingBall(name="object3", size=[0.7 * scale, 0.7 * scale, 1.1 * scale], rgb1=[1.0, 0., 0],  rgb2=[0.8, 0., 0], mass=2, friction=1.)
+  # agents['4'] = jumping_ball.RollingBall(name="object4", size=[1.1 * scale, 1.1 * scale, 1.1 * scale], rgb1=[0.0, 0., 1.0],  rgb2=[0., 0., 0.8], mass=0.1, friction=1.)
+
+  # reward_args = {'goal': 'velocity', 'xvel': 3.0}
+  arena, task = templates.maze_goal_template(m, v, agents, primary_agent, scale, h, w, reward_args=None,
+                                             aliveness_reward=0.01, aliveness_thresh=-1.1, continuous_aliveness=True,
+                                             accel_cost_scale=50.0, vel_cost_scale=0.0, target_height=40.0,
+                                             random_seed=1, randomize_spawn_rotation=False,
+                                             # spawn_rotation_radians = {'0': 0 * np.pi / 2},
+                                             spawn_rotation_radians={'0': 3 * np.pi / 2},
+                                             z_height=12, border_scale=1,
+                                             control_timestep=float(environment_kwargs['control_timestep']),
+                                             physics_timestep=float(environment_kwargs['physics_timestep']),
+                                             wall_overwrite_color='black',
+                                             )
+  env = composer.Environment(time_limit=MAX_TIME, task=task,
+                             random_state=np.random.RandomState(12345),
+                             strip_singleton_obs_buffer_dim=True)
+  if include_tracker:
+    add_expl_tracker(env, primary_agent, environment_kwargs)
+  env.reset()
+  control_timestep = float(environment_kwargs['control_timestep'])
+  fs = int(1.0 / control_timestep)
+  s = scale * 1.0
+  reset_position_freq = environment_kwargs['reset_position_freq']
+  start_pos = [0 * s, -2 * s]
+  env.policies = {
+    'object1': functools.partial(pol.object_appear, walker=agents['1'],
+                                step_appear=step_appear,
+                                step_disappear=None,
+                                start_pos=[0 * s, 8 * s]),
+
+    'agent0': functools.partial(pol.reset_position, walker=agents['0'], reset_position_freq=reset_position_freq,
+                                start_pos=start_pos),
+    }
+  return env
+
+def multiagent_object_example5(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  if color == 'yellow':
+    rgb1 = [1.0, 1., 0]
+    rgb2 = [0.8, 0.8, 0]
+  elif color == 'magenta':
+    rgb1 = [1.0, 0, 1.0]
+    rgb2 = [0.8, 0, 0.8]
+  elif color == 'white':
+    rgb1 = [1.0, 1.0, 1.0]
+    rgb2 = [0.8, 0.8, 0.8]
+
+
+  m, v, h, w = custom_mazes.get_custom_maze(id='object_example4')
+  primary_agent = '0'
+  agents = {}
+  agents[primary_agent] = agent
+  agents['1'] = jumping_ball.RollingBall(name="object1", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+                                        rgb1=rgb1, rgb2=rgb2, mass=1, friction=1.)
+  # agents['2'] = jumping_ball.RollingBall(name="object2", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+  #                                        rgb1=[1.0, 0., 1.], rgb2=[0.8, 0., 0.8], mass=1, friction=1.)
+  # agents['3'] = jumping_ball.RollingBall(name="object3", size=[0.7 * scale, 0.7 * scale, 1.1 * scale], rgb1=[1.0, 0., 0],  rgb2=[0.8, 0., 0], mass=2, friction=1.)
+  # agents['4'] = jumping_ball.RollingBall(name="object4", size=[1.1 * scale, 1.1 * scale, 1.1 * scale], rgb1=[0.0, 0., 1.0],  rgb2=[0., 0., 0.8], mass=0.1, friction=1.)
+
+  # reward_args = {'goal': 'velocity', 'xvel': 3.0}
+  arena, task = templates.maze_goal_template(m, v, agents, primary_agent, scale, h, w, reward_args=None,
+                                             aliveness_reward=0.01, aliveness_thresh=-1.1, continuous_aliveness=True,
+                                             accel_cost_scale=50.0, vel_cost_scale=0.0, target_height=40.0,
+                                             random_seed=1, randomize_spawn_rotation=False,
+                                             # spawn_rotation_radians = {'0': 0 * np.pi / 2},
+                                             spawn_rotation_radians={'0': 3 * np.pi / 2},
+                                             z_height=12, border_scale=1,
+                                             control_timestep=float(environment_kwargs['control_timestep']),
+                                             physics_timestep=float(environment_kwargs['physics_timestep']),
+                                             wall_overwrite_color='black',
+                                             )
+  env = composer.Environment(time_limit=MAX_TIME, task=task,
+                             random_state=np.random.RandomState(12345),
+                             strip_singleton_obs_buffer_dim=True)
+  if include_tracker:
+    add_expl_tracker(env, primary_agent, environment_kwargs)
+  env.reset()
+  control_timestep = float(environment_kwargs['control_timestep'])
+  fs = int(1.0 / control_timestep)
+  s = scale * 1.0
+  reset_position_freq = environment_kwargs['reset_position_freq']
+  start_pos = [0 * s, -2 * s]
+  env.policies = {
+    'object1': functools.partial(pol.object_appear, walker=agents['1'],
+                                step_appear=step_appear,
+                                step_disappear=None,
+                                start_pos=[0 * s, 8 * s]),
+
+    'agent0': functools.partial(pol.reset_position, walker=agents['0'], reset_position_freq=reset_position_freq,
+                                start_pos=start_pos),
+    }
+  return env
+
+
+def multiagent_object_example6(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  if color == 'yellow':
+    rgb1 = [1.0, 1., 0]
+    rgb2 = [0.8, 0.8, 0]
+  elif color == 'magenta':
+    rgb1 = [1.0, 0, 1.0]
+    rgb2 = [0.8, 0, 0.8]
+  elif color == 'white':
+    rgb1 = [1.0, 1.0, 1.0]
+    rgb2 = [0.8, 0.8, 0.8]
+
+
+  m, v, h, w = custom_mazes.get_custom_maze(id='object_example4')
+  primary_agent = '0'
+  agents = {}
+  agents[primary_agent] = agent
+  agents['1'] = jumping_ball.RollingBall(name="object1", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+                                        rgb1=rgb1, rgb2=rgb2, mass=1, friction=1.)
+  # agents['2'] = jumping_ball.RollingBall(name="object2", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+  #                                        rgb1=[1.0, 0., 1.], rgb2=[0.8, 0., 0.8], mass=1, friction=1.)
+  # agents['3'] = jumping_ball.RollingBall(name="object3", size=[0.7 * scale, 0.7 * scale, 1.1 * scale], rgb1=[1.0, 0., 0],  rgb2=[0.8, 0., 0], mass=2, friction=1.)
+  # agents['4'] = jumping_ball.RollingBall(name="object4", size=[1.1 * scale, 1.1 * scale, 1.1 * scale], rgb1=[0.0, 0., 1.0],  rgb2=[0., 0., 0.8], mass=0.1, friction=1.)
+
+  # reward_args = {'goal': 'velocity', 'xvel': 3.0}
+  arena, task = templates.maze_goal_template(m, v, agents, primary_agent, scale, h, w, reward_args=None,
+                                             aliveness_reward=0.01, aliveness_thresh=-1.1, continuous_aliveness=True,
+                                             accel_cost_scale=50.0, vel_cost_scale=0.0, target_height=40.0,
+                                             random_seed=1, randomize_spawn_rotation=False,
+                                             # spawn_rotation_radians = {'0': 0 * np.pi / 2},
+                                             spawn_rotation_radians={'0': 3.3 * np.pi / 2},
+                                             z_height=12, border_scale=1,
+                                             control_timestep=float(environment_kwargs['control_timestep']),
+                                             physics_timestep=float(environment_kwargs['physics_timestep']),
+                                             wall_overwrite_color='black',
+                                             )
+  env = composer.Environment(time_limit=MAX_TIME, task=task,
+                             random_state=np.random.RandomState(12345),
+                             strip_singleton_obs_buffer_dim=True)
+  if include_tracker:
+    add_expl_tracker(env, primary_agent, environment_kwargs)
+  env.reset()
+  control_timestep = float(environment_kwargs['control_timestep'])
+  fs = int(1.0 / control_timestep)
+  s = scale * 1.0
+  reset_position_freq = environment_kwargs['reset_position_freq']
+  start_pos = [0 * s, -2 * s]
+  env.policies = {
+    'object1': functools.partial(pol.object_appear, walker=agents['1'],
+                                step_appear=step_appear,
+                                step_disappear=None,
+                                start_pos=[0 * s, 8 * s]),
+
+    'agent0': functools.partial(pol.reset_position, walker=agents['0'], reset_position_freq=reset_position_freq,
+                                start_pos=start_pos),
+    }
+  return env
+
+def multiagent_object_example7(agent, scale, environment_kwargs, include_tracker=True, color='magenta', step_appear=0):
+  """Magenta ball in an arena after a small burnin period with empty room, never disappear."""
+  if color == 'yellow':
+    rgb1 = [1.0, 1., 0]
+    rgb2 = [0.8, 0.8, 0]
+  elif color == 'magenta':
+    rgb1 = [1.0, 0, 1.0]
+    rgb2 = [0.8, 0, 0.8]
+  elif color == 'white':
+    rgb1 = [1.0, 1.0, 1.0]
+    rgb2 = [0.8, 0.8, 0.8]
+
+
+  m, v, h, w = custom_mazes.get_custom_maze(id='object_example4')
+  primary_agent = '0'
+  agents = {}
+  agents[primary_agent] = agent
+  agents['1'] = jumping_ball.RollingBall(name="object1", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+                                        rgb1=rgb1, rgb2=rgb2, mass=1, friction=1.)
+  # agents['2'] = jumping_ball.RollingBall(name="object2", size=[1.1 * scale, 1.1 * scale, 1.1 * scale],
+  #                                        rgb1=[1.0, 0., 1.], rgb2=[0.8, 0., 0.8], mass=1, friction=1.)
+  # agents['3'] = jumping_ball.RollingBall(name="object3", size=[0.7 * scale, 0.7 * scale, 1.1 * scale], rgb1=[1.0, 0., 0],  rgb2=[0.8, 0., 0], mass=2, friction=1.)
+  # agents['4'] = jumping_ball.RollingBall(name="object4", size=[1.1 * scale, 1.1 * scale, 1.1 * scale], rgb1=[0.0, 0., 1.0],  rgb2=[0., 0., 0.8], mass=0.1, friction=1.)
+
+  # reward_args = {'goal': 'velocity', 'xvel': 3.0}
+  arena, task = templates.maze_goal_template(m, v, agents, primary_agent, scale, h, w, reward_args=None,
+                                             aliveness_reward=0.01, aliveness_thresh=-1.1, continuous_aliveness=True,
+                                             accel_cost_scale=50.0, vel_cost_scale=0.0, target_height=40.0,
+                                             random_seed=1, randomize_spawn_rotation=False,
+                                             # spawn_rotation_radians = {'0': 0 * np.pi / 2},
+                                             spawn_rotation_radians={'0': 3.32 * np.pi / 2},
+                                             z_height=12, border_scale=1,
+                                             control_timestep=float(environment_kwargs['control_timestep']),
+                                             physics_timestep=float(environment_kwargs['physics_timestep']),
+                                             wall_overwrite_color='black',
+                                             )
+  env = composer.Environment(time_limit=MAX_TIME, task=task,
+                             random_state=np.random.RandomState(12345),
+                             strip_singleton_obs_buffer_dim=True)
+  if include_tracker:
+    add_expl_tracker(env, primary_agent, environment_kwargs)
+  env.reset()
+  control_timestep = float(environment_kwargs['control_timestep'])
+  fs = int(1.0 / control_timestep)
+  s = scale * 1.0
+  reset_position_freq = environment_kwargs['reset_position_freq']
+  start_pos = [0 * s, -2 * s]
+  env.policies = {
+    'object1': functools.partial(pol.object_appear, walker=agents['1'],
+                                step_appear=step_appear,
+                                step_disappear=None,
+                                start_pos=[0 * s, 8 * s]),
+
+    'agent0': functools.partial(pol.reset_position, walker=agents['0'], reset_position_freq=reset_position_freq,
+                                start_pos=start_pos),
+    }
+  return env

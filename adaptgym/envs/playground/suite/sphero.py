@@ -121,3 +121,100 @@ def object_example1_empty(environment_kwargs):
                                      rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
     env = playgrounds.multiagent_object_example1(agent, scale, environment_kwargs, step_appear=1e8)
     return env
+
+
+@SUITE.add('benchmarking')
+def object_example2_magenta(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example2(agent, scale, environment_kwargs, color='magenta')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example2_yellow(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example2(agent, scale, environment_kwargs, color='yellow')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example3_magenta(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example3(agent, scale, environment_kwargs, color='magenta')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example3_yellow(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example3(agent, scale, environment_kwargs, color='yellow')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example4_magenta(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example4(agent, scale, environment_kwargs, color='magenta')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example4_yellow(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example4(agent, scale, environment_kwargs, color='yellow')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example5_magenta(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example5(agent, scale, environment_kwargs, color='magenta')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example5_yellow(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example5(agent, scale, environment_kwargs, color='yellow')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example6_magenta(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example6(agent, scale, environment_kwargs, color='magenta')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example6_yellow(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example6(agent, scale, environment_kwargs, color='yellow')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example7_magenta(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example6(agent, scale, environment_kwargs, color='magenta')
+    return env
+
+@SUITE.add('benchmarking')
+def object_example7_yellow(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_object_example6(agent, scale, environment_kwargs, color='yellow')
+    return env
