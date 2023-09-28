@@ -21,7 +21,7 @@ def main():
     name = 'admc_sphero_labyrinth_black'
     name = 'admc_sphero_novel_object_2ball_debug'
     name = 'admc_sphero_novel_object_2ball_reverse_debug'
-    name = 'admc_sphero_object_example7_magenta'
+    name = 'admc_sphero_object_example8_magenta'
     # name = 'admc_sphero_labyrinth_black'
     # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
     envname, taskname = name.split('_', 1)
@@ -34,8 +34,8 @@ def main():
     elif envname == 'admc':
       env = wrapped.ADMC(taskname)
 
-    # mode = 'gif'
-    mode = 'interactive'
+    mode = 'gif'
+    # mode = 'interactive'
     if mode == 'display':
         display(env, num_frames=1)
     elif mode == 'gif':

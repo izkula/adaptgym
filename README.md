@@ -9,7 +9,7 @@ Install from online:
 
 or to specify a specific version:
 
-`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --no-cache-dir adaptgym==0.1.40`
+`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --no-cache-dir adaptgym==0.1.42`
 
 ### Playing around with the environments
 See `adaptgym/envs/scripts/fiddle_env.py` to visualize and interact with the environments.
