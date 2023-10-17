@@ -24,6 +24,7 @@ class ADMC:
                flush_logger_every=2000,
                grid_density=20,
                episodes_for_summary_metrics=20,
+               spoof_done_every=500,
                ):
 
     if logdir is None:
@@ -58,7 +59,7 @@ class ADMC:
     primary_agent_name = primary_agent._mjcf_root.model # Gets the name specified in the task, i.e. 'agent0'
     self._env = SpecifyPrimaryAgent(self._env, primary_agent_name, self._env.policies, use_global_step=use_global_step)
 
-    self._env = SpoofEpisodicWrapper(self._env, done_every=500)
+    self._env = SpoofEpisodicWrapper(self._env, done_every=spoof_done_every)
 
 
     self._action_repeat = action_repeat
