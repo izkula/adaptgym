@@ -93,6 +93,29 @@ def labyrinth_black_example(environment_kwargs):
     env = playgrounds.multiagent_labyrinth_black_example(agent, scale, environment_kwargs)
     return env
 
+@SUITE.add('benchmarking')
+def distal(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_distal(agent, scale, environment_kwargs)
+    return env
+
+@SUITE.add('benchmarking')
+def distal_column1(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_distal_column1(agent, scale, environment_kwargs)
+    return env
+
+@SUITE.add('benchmarking')
+def distal_column2(environment_kwargs):
+    scale = 0.7
+    agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+    env = playgrounds.multiagent_distal_column2(agent, scale, environment_kwargs)
+    return env
 
 ############################################################
 ##########    Evaluation tasks below      ##################

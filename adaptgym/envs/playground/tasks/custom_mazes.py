@@ -4402,6 +4402,527 @@ vars['openfield'] = \
 
 
 
+height['distal'] = \
+                             "99999999999999999999999999999999999999999\n" \
+                             "9      9                                9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                            8          9\n" \
+                             "9     44444444444444444444444444444     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           49    9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9 9   4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4   9 9\n" \
+                             "99    4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     44444444444444444444444444444     9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                     9                 9\n" \
+                             "9                                       9\n" \
+                             "99999999999999999999999999999999999999999\n" \
+
+mazes['distal'] = \
+                             "*****************************************\n" \
+                             "*      *                                *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*      1234                  *          *\n" \
+                             "*     *****************************     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           **    *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "* *   *   0                     G *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *   * *\n" \
+                             "**    *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *****************************     *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                     *                 *\n" \
+                             "*                                       *\n" \
+                             "*****************************************\n" \
+
+walls['distal'] = \
+                             "*****************************************\n" \
+                             "*      *                                *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                            *          *\n" \
+                             "*     *****************************     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           **    *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "* *   *                           *     *\n" \
+                             "*     g                           *     *\n" \
+                             "*     *                           *   * *\n" \
+                             "**    *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *****************************     *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                     *                 *\n" \
+                             "*                                       *\n" \
+                             "*****************************************\n" \
+
+vars['distal'] = \
+                             "*****************************************\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".........................................\n" \
+
+
+
+height['distal_c1'] = \
+                             "99999999999999999999999999999999999999999\n" \
+                             "9      9                                9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                            8          9\n" \
+                             "9     44444444444444444444444444444     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           49    9\n" \
+                             "9     4                  6        4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9 9   4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4   9 9\n" \
+                             "99    4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     44444444444444444444444444444     9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                     9                 9\n" \
+                             "9                                       9\n" \
+                             "99999999999999999999999999999999999999999\n" \
+
+mazes['distal_c1'] = \
+                             "*****************************************\n" \
+                             "*      *                                *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*      1234                  *          *\n" \
+                             "*     *****************************     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           **    *\n" \
+                             "*     *                  *        *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "* *   *   0                     G *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *   * *\n" \
+                             "**    *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *****************************     *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                     *                 *\n" \
+                             "*                                       *\n" \
+                             "*****************************************\n" \
+
+walls['distal_c1'] = \
+                             "*****************************************\n" \
+                             "*      *                                *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                            *          *\n" \
+                             "*     *****************************     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           **    *\n" \
+                             "*     *                  g        *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "* *   *                           *     *\n" \
+                             "*     g                           *     *\n" \
+                             "*     *                           *   * *\n" \
+                             "**    *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *****************************     *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                     *                 *\n" \
+                             "*                                       *\n" \
+                             "*****************************************\n" \
+
+vars['distal_c1'] = \
+                             "*****************************************\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".........................................\n" \
+
+
+height['distal_c2'] = \
+                             "99999999999999999999999999999999999999999\n" \
+                             "9      9                                9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                            8          9\n" \
+                             "9     44444444444444444444444444444     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           49    9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9 9   4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4   9 9\n" \
+                             "99    4             6             4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     4                           4     9\n" \
+                             "9     44444444444444444444444444444     9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                                       9\n" \
+                             "9                     9                 9\n" \
+                             "9                                       9\n" \
+                             "99999999999999999999999999999999999999999\n" \
+
+mazes['distal_c2'] = \
+                             "*****************************************\n" \
+                             "*      *                                *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*      1234                  *          *\n" \
+                             "*     *****************************     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           **    *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "* *   *   0                     G *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *   * *\n" \
+                             "**    *             *             *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *****************************     *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                     *                 *\n" \
+                             "*                                       *\n" \
+                             "*****************************************\n" \
+
+walls['distal_c2'] = \
+                             "*****************************************\n" \
+                             "*      *                                *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                            *          *\n" \
+                             "*     *****************************     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           **    *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "* *   *                           *     *\n" \
+                             "*     g                           *     *\n" \
+                             "*     *                           *   * *\n" \
+                             "**    *             g             *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *                           *     *\n" \
+                             "*     *****************************     *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                                       *\n" \
+                             "*                     *                 *\n" \
+                             "*                                       *\n" \
+                             "*****************************************\n" \
+
+vars['distal_c2'] = \
+                             "*****************************************\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.\n" \
+                             ".........................................\n" \
+
+
+
 
 mazes['labyrinth'] =       \
                             "***************************************************\n" \
