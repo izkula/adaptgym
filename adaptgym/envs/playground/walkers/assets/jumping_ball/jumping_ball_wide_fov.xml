@@ -20,13 +20,13 @@
 
   <worldbody>
     <body pos="0 0 0.6" quat="1 0 0 -1" name="head_body">
-      <body name="egocentric_camera" pos="0 0.15 0.5" zaxis="0 -0.99503719021 0.09950371902">
-<!--      <body name="egocentric_camera" pos="0 0.42 0.5" zaxis="0 -0.99503719021 0.09950371902">-->
+<!--      <body name="egocentric_camera" pos="0 0.15 0.5" zaxis="0 -0.99503719021 0.09950371902">-->
+      <body name="egocentric_camera" pos="0 0.42 0.5" zaxis="0 -0.99503719021 0.09950371902">
         <inertial pos="0 0 0" mass="1" diaginertia="1 1 1"/>
         <joint name="camera_height" type="slide" axis="0 1 0" limited="true" range="-0.5 0.5"/>
         <joint name="camera_tilt" type="hinge" axis="1 0 0" limited="true" range="-0.35 0.35"/>
-        <camera name="egocentric" fovy="60"/>
-<!--        <camera name="egocentric" fovy="150"/>-->
+<!--        <camera name="egocentric" fovy="60"/>-->
+        <camera name="egocentric" fovy="150"/>
 
       </body>
       <camera name="tracking" pos="1.5 1.5 .7" xyaxes="-1 1 0 -1 -1 4" mode="trackcom"/>

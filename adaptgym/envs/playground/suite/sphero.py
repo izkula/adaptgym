@@ -97,7 +97,8 @@ def labyrinth_black_example(environment_kwargs):
 def distal(environment_kwargs):
     scale = 0.7
     agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
-                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20,
+                                     wide_fov=environment_kwargs['wide_fov'])
     env = playgrounds.multiagent_distal(agent, scale, environment_kwargs)
     return env
 
@@ -105,7 +106,8 @@ def distal(environment_kwargs):
 def distal_column1(environment_kwargs):
     scale = 0.7
     agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
-                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20,
+                                     wide_fov=environment_kwargs['wide_fov'])
     env = playgrounds.multiagent_distal_column1(agent, scale, environment_kwargs)
     return env
 
@@ -113,7 +115,8 @@ def distal_column1(environment_kwargs):
 def distal_column2(environment_kwargs):
     scale = 0.7
     agent = jumping_ball.RollingBall(name="agent0", size=0.8*scale,
-                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20)
+                                     rgb1=[1.0, 1.0, 1.0], rgb2=[0.0, 0.0, 0.0], mass=20,
+                                     wide_fov=environment_kwargs['wide_fov'])
     env = playgrounds.multiagent_distal_column2(agent, scale, environment_kwargs)
     return env
 

@@ -25,6 +25,7 @@ class ADMC:
                grid_density=20,
                episodes_for_summary_metrics=20,
                spoof_done_every=500,
+               wide_fov=False,
                ):
 
     if logdir is None:
@@ -46,6 +47,7 @@ class ADMC:
                                                                    reset_position_freq=reset_position_freq,
                                                                    use_global_step=use_global_step,
                                                                    aesthetic=aesthetic,
+                                                                   wide_fov=wide_fov,
                                                                    ))
       # self._env = suite.load(domain, task, environment_kwargs=dict(aesthetic=aesthetic))
 

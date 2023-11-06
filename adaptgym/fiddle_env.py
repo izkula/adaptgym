@@ -32,13 +32,13 @@ def main():
     elif envname == 'ddmc':
       env = wrapped.DDMC(taskname)
     elif envname == 'admc':
-      env = wrapped.ADMC(taskname)
+      env = wrapped.ADMC(taskname, wide_fov=False)
 
     mode = 'gif'
-    # mode = 'display'
-    mode = 'interactive'
+    mode = 'display'
+    # mode = 'interactive'
     if mode == 'display':
-        display(env, num_frames=1)
+        display(env, num_frames=200)
     elif mode == 'gif':
         gif(env, num_frames=200)
     elif mode == 'interactive':

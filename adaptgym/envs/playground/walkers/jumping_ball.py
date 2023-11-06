@@ -163,7 +163,7 @@ class JumpingBall(legacy_base.Walker):
   def _build(self, name='walker', marker_rgba=None, camera_control=False,
              initializer=None, add_ears=False, camera_height=None,
              size=0.2, rgb1=(1.0, .1, .1), rgb2=(.1, .1, 1.0),
-             mass=20, friction=0.5):
+             mass=20, friction=0.5, wide_fov=False):
     """Build a JumpingBall.
 
     Args:
@@ -178,6 +178,8 @@ class JumpingBall(legacy_base.Walker):
       camera_height: A float specifying the height of the camera, or `None` if
         the camera height should be left as specified in the XML model.
     """
+    self._wide_fov = wide_fov
+
     super()._build(initializer=initializer)
     self._mjcf_root = self._mjcf_root = mjcf.from_path(self._xml_path)
 
@@ -222,8 +224,12 @@ class JumpingBall(legacy_base.Walker):
   @property
   def _xml_path(self):
     #return os.path.join(_ASSETS_PATH, 'jumping_ball_with_head.xml')
-    return os.path.join(_ASSETS_PATH, 'jumping_ball.xml')
     #return os.path.join(_ASSETS_PATH, 'sliding_ball.xml')
+
+    if self._wide_fov:
+      return os.path.join(_ASSETS_PATH, 'jumping_ball_wide_fov.xml')
+    else:
+      return os.path.join(_ASSETS_PATH, 'jumping_ball.xml')
 
   @property
   def marker_geoms(self):
