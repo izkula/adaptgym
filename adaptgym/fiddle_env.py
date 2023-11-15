@@ -11,7 +11,7 @@ from dm_control import viewer
 
 import cv2
 
-def main(name=None, mode='display'):
+def main(name=None, mode='interactive'):
     """
     Demo visualization of environments.
     Args:
