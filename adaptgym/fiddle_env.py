@@ -11,19 +11,29 @@ from dm_control import viewer
 
 import cv2
 
-def main():
-    name = 'cdmc_cheetah_run'
-    name = 'cdmc_cartpole_swingup_sparse'
-    name = 'ddmc_walker_walk'
-    name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
-    name = 'admc_sphero_novel_object'
-    name = 'admc_sphero_novel_object_unchanging'
-    name = 'admc_sphero_novel_object_2ball_debug'
-    name = 'admc_sphero_novel_object_2ball_reverse_debug'
-    name = 'admc_sphero_object_example8_magenta'
-    name = 'admc_sphero_labyrinth_black_example'
-    name = 'admc_sphero_distal_column2'
-    # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
+def main(name=None, mode='display'):
+    """
+    Demo visualization of environments.
+    Args:
+        name: e.g. 'admc_sphero_novel_object_2ball' or 'admc_sphero_labyrinth'
+        mode: 'display' (stream video from agent perspective),
+              'gif' (save gif with video from agent perspective)
+              'interactive' (3D interactive view of environment)
+    """
+    if name is None:
+        # name = 'admc_rodent_multiagent_novel_objects_step2_single_magenta'
+        # name = 'cdmc_cheetah_run'
+        # name = 'cdmc_cartpole_swingup_sparse'
+        # name = 'ddmc_walker_walk'
+        # name = 'admc_sphero_multiagent_novel_objects_step2_single_magenta'
+        # name = 'admc_sphero_novel_object_unchanging'
+        # name = 'admc_sphero_novel_object_2ball_reverse_debug'
+        # name = 'admc_sphero_object_example8_magenta'
+        # name = 'admc_sphero_labyrinth_black_example'
+        # name = 'admc_sphero_distal_column2'
+        # name = 'admc_sphero_novel_object_2ball_debug'
+        name = 'admc_sphero_labyrinth'
+        name = 'admc_sphero_novel_object_2ball'
     envname, taskname = name.split('_', 1)
 
     from adaptgym import wrapped
@@ -34,9 +44,6 @@ def main():
     elif envname == 'admc':
       env = wrapped.ADMC(taskname, wide_fov=False)
 
-    mode = 'gif'
-    mode = 'display'
-    # mode = 'interactive'
     if mode == 'display':
         display(env, num_frames=200)
     elif mode == 'gif':
