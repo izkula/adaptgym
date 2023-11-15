@@ -9,6 +9,7 @@ Install from online:
 
 or to specify a specific version:
 
+
 `pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple --no-cache-dir adaptgym==0.1.48`
 
 ### Playing around with the environments
