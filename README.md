@@ -12,6 +12,8 @@ a virtual object interaction assay (based on [Ahmadlou et al.](https://pubmed.nc
 <img width="100%" src="overview.png">
 </p>
 
+Adaptgym is based on [dm_control](https://github.com/google-deepmind/dm_control),
+and is a flexible framework for making environments.
 
 ### Installation
 Install from pypi:
