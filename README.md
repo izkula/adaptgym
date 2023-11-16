@@ -1,10 +1,20 @@
 # adaptgym
 
-Environments for assessing agent adaptation.
+Environments for assessing adaptation and exploration of reinforcement learning agents.
+
+Many are inspired by animal assays, e.g. a virtual labyrinth (based on [Rosenberg et al.](https://elifesciences.org/articles/66175)), and
+a virtual object interaction assay (based on [Ahmadlou et al.](https://pubmed.ncbi.nlm.nih.gov/33986154/)).
+
+<p align="center">
+<img width="100%" src="overview.png">
+</p>
+
 
 ### Installation
+Install from pypi:
+`pip install adaptgym`
 
-Install from online:
+Install from test pypi:
 `pip install -i https://test.pypi.org/simple/ adaptgym`
 
 or to specify a specific version:
