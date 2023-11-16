@@ -1,8 +1,10 @@
 [tool.poetry]
 name = "adaptgym"
-version = "0.1.1" # For pypi
-#version = "0.1.64" # For test.pypi
-description = ""
+#version = "0.1.1" # For pypi
+version = "0.1.65" # For test.pypi
+description = "Virtual environments for assessing agent exploration, inspired by animal assays."
+homepage = "https://github.com/izkula/adaptgym"
+license = "MIT"
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 packages = [
     { include = "adaptgym"},
