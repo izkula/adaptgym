@@ -1,12 +1,9 @@
 [tool.poetry]
 name = "adaptgym"
-#version = "0.1.1" # For pypi
-version = "0.1.64" # For test.pypi
+version = "0.1.1" # For pypi
+#version = "0.1.64" # For test.pypi
 description = ""
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
-#packages = [
-#    {include = "envs"},
-#]
 packages = [
     { include = "adaptgym"},
 ]
