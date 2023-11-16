@@ -1,6 +1,9 @@
 # adaptgym
 
-Environments for assessing adaptation and exploration of reinforcement learning agents.
+[![PyPI](https://img.shields.io/badge/pypi-v0.1-blue)](https://pypi.org/project/adaptgym/#history)
+
+
+### Environments for assessing adaptation and exploration of reinforcement learning agents.
 
 Many are inspired by animal assays, e.g. a virtual labyrinth (based on [Rosenberg et al.](https://elifesciences.org/articles/66175)), and
 a virtual object interaction assay (based on [Ahmadlou et al.](https://pubmed.ncbi.nlm.nih.gov/33986154/)).
