@@ -15,6 +15,9 @@ or to specify a specific version:
 ### Playing around with the environments
 See `adaptgym/envs/scripts/fiddle_env.py` to visualize and interact with the environments.
 
+To run this demo from the command line:
+
+`python -c 'from adaptgym.fiddle_env import main; main()'`
 
 ### Notes:
 

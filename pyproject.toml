@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "adaptgym"
-#version = "0.1.0"
-version = "0.1.63"
+version = "0.1.1" # For pypi
+#version = "0.1.64" # For test.pypi
 description = ""
 authors = ["Isaac Kauvar <ikauvar@gmail.com>"]
 #packages = [
@@ -14,7 +14,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.8"
 #numpy="1.19.5"
-numpy=">=1.22"
+numpy="1.22"
 scipy=">=1.7.0"
 matplotlib=">=3.4.2"
 dm-control="1.0.7"
